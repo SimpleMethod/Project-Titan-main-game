@@ -1,0 +1,36 @@
+{
+  "General.ConfigVersion": 1,
+  //
+  "Engine.LimitFPS": 60,
+  //
+  "LoadingScreen.Disabled": 0,
+  "LoadingScreen.SkipShowWithAnyKey": 0,
+  "LoadingScreen.SkipInputDelay": 0.25,
+  "LoadingScreen.SkipAutoshow": 0,
+  "LoadingScreen.Audio": 0.8,
+  "LoadingScreen.ShowProgress": 1,
+  //
+  "Localization.TextLanguage": "PL-PL",
+  "Localization.SpeechLanguage": "PL-PL",
+  //
+  "Viewport.VSync": 0,
+  "Viewport.Resolution": "1920x1080",
+  //
+  "Gameplay.Difficulty": 1,
+  "Gameplay.HudTutorialEnabled": 0,
+  //
+  "Rendering.DrawScreenInfo": 0,
+  //
+  "Audio.CompressionSettings": 0,
+  "Audio.Master_Volume": 1.000000,
+  "Audio.SpeakerConfiguration": 1,
+  "Audio.Volume_Music": 1.000000,
+  "Audio.Volume_SFX": 1.000000,
+  "Audio.Volume_VO": 1.000000,
+  "Audio.ignoreWindowFocus": 0,
+  //
+
+  //// NOWE
+
+  "\"Render.DrawScreenInfo"
+}

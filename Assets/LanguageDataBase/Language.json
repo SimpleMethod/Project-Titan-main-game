@@ -1,0 +1,167 @@
+﻿{
+  "PL-PL.IntroText": [
+    {
+      "id": 0,
+      "text": "Mam nadzieję, że w dniu, w którym dwie armie będą mogły obrócić się w perzynę w ciągu jednej sekundy, wszystkie cywilizowane narody zaprzestaną wojen i rozwiążą swe wojska."
+    },
+    {
+      "id": 1,
+      "text": "Architektura to zapis wspaniałych idei ludzkości. W tej obszernej księdze swe miejsce ma nie tylko każdy symbol religijny, ale także każda myśl człowiecza."
+    },
+    {
+      "id": 2,
+      "text": "Nie można zrobić dobrego noża ze złej stali."
+    },
+    {
+      "id": 3,
+      "text": "Dobrze, że wojna jest tak straszna, inaczej moglibyśmy ją polubić."
+    },
+    {
+      "id": 4,
+      "text": "Szczęście to konto w dobrym banku, zręczny kucharz i dobre trawienie."
+    },
+    {
+      "id": 5,
+      "text": "Ci, którzy nie pamiętają o przeszłości, są skazani na jej powtarzanie."
+    },
+    {
+      "id": 6,
+      "text": "Kto wyciągnie ten miecz z kamienia tego i kowadła jest prawowitym królem całej Anglii."
+    },
+    {
+      "id": 7,
+      "text": "Na tym świecie wspaniałe nie jest miejsce, w którym stoimy, lecz to, do którego zmierzamy..."
+    },
+    {
+      "id": 8,
+      "text": "Zmierz, co jest mierzalne, i uczyń mierzalnym to, co takim nie jest."
+    },
+    {
+      "id": 9,
+      "text": "Edukacja to najlepsze zabezpieczenie na starość."
+    },
+    {
+      "id": 10,
+      "text": "Matematyka to klucz i wrota do wszystkich nauk."
+    }
+  ],
+  "PL-PL.StatusArray": [
+    {
+      "id": 0,
+      "text": "ŁĄCZENIE",
+      "Color": "FFF"
+    },
+    {
+      "id": 1,
+      "text": "POŁĄCZONY",
+      "Color": "1EFF00FF"
+    },
+    {
+      "id": 2,
+      "text": "BRAK POŁĄCZENIA",
+      "Color": "FF8E00FF"
+    },
+    {
+      "id": 3,
+      "text": "PROBLEM Z POBRANIEM ID",
+      "Color": "FF8E00FF"
+    }
+  ],
+  "PL-PL.MenuStartText": "Naciśnij klawisz [{0}], aby rozpocząć",
+  "PL-PL.Status": "Status: {0}",
+  "PL-PL.LoadLastSave": "WZNÓW",
+  "PL-PL.NewGame": "NOWA GRA",
+  "PL-PL.LoadGame": "WCZYTAJ GRĘ",
+  "PL-PL.OnlineMode": "TRYB ONLINE",
+  "PL-PL.Settings": "USTAWIENIA",
+  "PL-PL.Exit": "WYJDŹ",
+  "PL-PL.Credits": "TWÓRCY GRY",
+  "PL-PL.Yes": "TAK",
+  "PL-PL.No": "NIE",
+  "PL-PL.Accept": "Akceptuj",
+  "PL-PL.Undo": "Cofnij",
+  "PL-PL.Question": "Czy na pewno chcesz wyjść z gry?",
+  "PL-PL.QuestionNewGame": "Czy na pewno chcesz rozpocząć nową grę?",
+  "PL-PL.Language": "Język",
+  "PL-PL.KeySpace": "Spacja",
+  "PL-PL.Beta": "Beta",
+  "PL-PL.Security": "Zabezpieczenia",
+  "PL-PL.PasswordChangedDate": "Ostatnio zmienione w dniu {{passwordChangedDate | date:'dd MMMM yyyy'}}",
+  "PL-PL.RememberUser": "Pamiętaj mnie na tym komputerze",
+  "PL-PL.LinkedAccounts": "Powiązane konta ({{linkedAccountsCount}})",
+  "PL-PL.Link": "powiąż",
+  "PL-PL.Features": "Funkcje",
+  "PL-PL.ScanNow": "Skanuj teraz",
+  "PL-PL.ChangePassword": "Zmień hasło",
+  "PL-PL.NewPassword": "Nowe hasło",
+  "PL-PL.PasswordDoesNotMatch": "Hasła nie pasują do siebie",
+  "PL-PL.Email": "Adres e-mail",
+  "PL-PL.UseThisEmailToLogin": "Użyj tego adresu e-mail do logowania",
+  "PL-PL.OptimalPlayableSettings": "Ustawienia optymalne gry",
+  "PL-PL.Remove": "Usuń",
+  "PL-PL.Add": "Dodaj",
+  "PL-PL.SomethingWentWrong": "Nie udało się. Uruchom ponownie grę.",
+  "PL-PL.UpdateAvatar": "Aktualizuj awatar",
+  "PL-PL.ChooseAvatarFromGallery": "Wybierz z galerii awatarów",
+  "PL-PL.Update": "Aktualizuj",
+  "PL-PL.ChangeEmailAddress": "Zmień adres e-mail",
+  "PL-PL.ThanksEmailUpdated": "Dziękujemy za zweryfikowanie adresu e-mail",
+  "PL-PL.EmailUpdatedSuccessfully": "Pomyślnie zaktualizowano adres e-mail",
+  "PL-PL.UnableToUpdateSettings": "Nie można zaktualizować ustawień",
+  "PL-PL.YourPasswordChanged": "Twoje hasło zostało zmienione",
+  "PL-PL.Mame": "Nazwa",
+  "PL-PL.Target": "Miejsce docelowe",
+  "PL-PL.StartIn": "Rozpocznij w",
+  "PL-PL.UnsupportedFileType": "Nieobsługiwany typ pliku",
+  "PL-PL.FileNotFound": "Nie znaleziono pliku",
+  "PL-PL.CheckInternetConnectivity": "Nie udało się. Sprawdź połączenie z Internetem i uruchom ponownie grę",
+  "PL-PL.TryRestartSystem": "Nie udało się. Uruchom ponownie system.",
+  "PL-PL.BoxArt": "Grafika opakowania",
+  "PL-PL.Ready": "Gotowe",
+  "PL-PL.NotReady": "Niegotowe",
+  "PL-PL.AddScanPathFailed": "Nie dodano lokalizacji, spróbuj ponownie.",
+  "PL-PL.ProjectDirector": "Project Director",
+  "PL-PL.LeadDesigner": "Lead Designer",
+  "PL-PL.LeadWriter": "Lead Writer",
+  "PL-PL.ArtDirector": "Art Director",
+  "PL-PL.LeadProgrammer": "Lead Programmer",
+  "PL-PL.Producer": "Producer",
+  "PL-PL.ArtAndAnimation": "Art and Animation",
+  "PL-PL.CharacterArtList": "Character Art list",
+  "PL-PL.CinematicAnimators": "Cinematic Animators",
+  "PL-PL.DevelopmentDirector": "Development Director",
+  "PL-PL.InGameAnimators": "In Game Animators",
+  "PL-PL.TechnicalAnimators": "Technical Animators",
+  "PL-PL.ConceptArtists": "Concept Artists",
+  "PL-PL.EnvironmentArtists": "Environment Artists",
+  "PL-PL.GuiArtists": "GUI Artists",
+  "PL-PL.TechnicalArtists": "Technical Artists",
+  "PL-PL.VisualEffectArtists": "Visual Effect Artists",
+  "PL-PL.AudioLocalizationAndExternalResources": "Audio Localization and External Resources",
+  "PL-PL.AudioDesigners": "Audio Designers",
+  "PL-PL.VoiceOverProducerDirector": "Voice-Over Producer / Director",
+  "PL-PL.ExternalProducer": "External Producer",
+  "PL-PL.LocalizationProjectManager": "Localization Project Manager",
+  "PL-PL.LocalizationProducers": "Localization Producers",
+  "PL-PL.Design": "Design",
+  "PL-PL.CinematicDesigners": "Cinematic Designers",
+  "PL-PL.LevelDesigners": "Level Designers",
+  "PL-PL.Editors": "Editors",
+  "PL-PL.Producers": "Producers",
+  "PL-PL.Programming": "Programming",
+  "PL-PL.Programmers": "Programmers",
+  "PL-PL.ContentTesters": "Content Testers",
+  "PL-PL.MultiplayerAnalysts": "Multiplayer Analysts",
+  "PL-PL.MultiplayeTesters": "Multiplaye Testers",
+  "PL-PL.TestOpsTesters": "Test Ops Testers",
+  "PL-PL.Cast": "Cast",
+  "PL-PL.Bt2181": "Bt2181",
+  "PL-PL.AdmiralDavid": "Admiral David",
+  "PL-PL.PoorMan": "Poor Man",
+  "PL-PL.Zoe": "Zoe",
+  "PL-PL.Volume": "Głośność",
+  "PL-PL.Resolution": "Rozdzielczosć Ekranu",
+  "PL-PL.VerticalSync": "Synchronizacja pionowa",
+  "PL-PL.FrameRate": "Limit klatek na sekundę",
+  "PL-PL.Quality": "Ogólna jakość"
+}
