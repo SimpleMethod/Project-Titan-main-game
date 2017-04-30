@@ -78,7 +78,13 @@
   "PL-PL.Credits": "TWÓRCY GRY",
   "PL-PL.Yes": "TAK",
   "PL-PL.No": "NIE",
+  "PL-PL.Volume": "Głośność",
+  "PL-PL.Resolution": "Rozdzielczosć ekranu",
+  "PL-PL.VerticalSync": "Synchronizacja pionowa",
+  "PL-PL.FrameRate": "Limit klatek na sekundę",
+  "PL-PL.Quality": "Ogólna jakość",
   "PL-PL.Accept": "Akceptuj",
+  "PL-PL.Refuse": "Wyjdź",
   "PL-PL.Undo": "Cofnij",
   "PL-PL.Question": "Czy na pewno chcesz wyjść z gry?",
   "PL-PL.QuestionNewGame": "Czy na pewno chcesz rozpocząć nową grę?",
@@ -158,10 +164,5 @@
   "PL-PL.Bt2181": "Bt2181",
   "PL-PL.AdmiralDavid": "Admiral David",
   "PL-PL.PoorMan": "Poor Man",
-  "PL-PL.Zoe": "Zoe",
-  "PL-PL.Volume": "Głośność",
-  "PL-PL.Resolution": "Rozdzielczosć Ekranu",
-  "PL-PL.VerticalSync": "Synchronizacja pionowa",
-  "PL-PL.FrameRate": "Limit klatek na sekundę",
-  "PL-PL.Quality": "Ogólna jakość"
+  "PL-PL.Zoe": "Zoe"
 }

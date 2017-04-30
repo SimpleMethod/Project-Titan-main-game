@@ -8,13 +8,18 @@ public class IntroScript : MonoBehaviour
     private VideoPlayer Video;
     private VideoSource Zrodlo;
     private AudioSource Audio;
-
+    private bool Status;
     private void Awake()
     {
-        Screen.SetResolution(1920, 1080, true);
-        //Application.targetFrameRate = 30;
-        QualitySettings.SetQualityLevel(4, true);
-       // QualitySettings.vSyncCount = 1;
+        if (Functions.CreateConfig())
+        {
+
+        }
+        else
+        {
+
+        }
+
     }
 
     private void GetID()
@@ -51,24 +56,19 @@ public class IntroScript : MonoBehaviour
         Video.isLooping = false;
         Video.clip = NazwaPliku;
         Video.Prepare();
+
         Video.Play();
         Audio.Play();
+        Status = true;
 
-        if (Functions.CreateConfig())
-        {
 
-        }
-        else
-        {
 
-        }
-        
-        //QualitySettings.antiAliasing=16;
+
     }
 
     void Update()
     {
-        if (!Video.isPlaying || CrossPlatformInputManager.GetButtonDown(KeyMap._Submit))
+        if ((Status == true && !Video.isPlaying) || CrossPlatformInputManager.GetButtonDown(KeyMap._Submit))
         {
             Audio.volume = 0.0f;
             Destroy(Video);
