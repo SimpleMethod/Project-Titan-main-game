@@ -10,13 +10,21 @@ public class SendData : MonoBehaviour {
     static public int _postProcessQuality;
     static public int _resolutionScale;
     static public int _resolutionScaleMode;
-    static public float _master_Volume;
-    static public float _volume_Music;
+ //   static public float _master_Volume;
+ //   static public float _volume_Music;
     static public string _levelload;
     static public string _uniqueid;
     static public string _language ="PL-PL";
-    public static readonly string _File = "Language";
     static public bool _OnlineAccess;
+    public static readonly string _File = "Language";
+
+#if UNITY_EDITOR
+    static public float _master_Volume=1f;
+    static public float _volume_Music=1f;
+#else
+    static public float _master_Volume;
+    static public float _volume_Music;
+#endif
     static public string _simpleconfigplacehorder = @"{'Graphic.anisotropicFiltering': 0,
 'Graphic.antiAliasing': 8, 
 'Graphic.asyncUploadBufferSize': 0, 

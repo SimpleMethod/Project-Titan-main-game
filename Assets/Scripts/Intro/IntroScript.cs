@@ -46,7 +46,7 @@ public class IntroScript : MonoBehaviour
         Audio = camera.AddComponent<AudioSource>();
         Audio.playOnAwake = false;
         Audio.Pause();
-        Audio.volume = 0.8f;
+        Audio.volume = SendData._master_Volume;
         Video.audioOutputMode = VideoAudioOutputMode.AudioSource;
         Video.SetTargetAudioSource(0, Audio);
         Video.source = VideoSource.VideoClip;
@@ -70,7 +70,6 @@ public class IntroScript : MonoBehaviour
     {
         if ((Status == true && !Video.isPlaying) || CrossPlatformInputManager.GetButtonDown(KeyMap._Submit))
         {
-            Audio.volume = 0.0f;
             Destroy(Video);
             Destroy(Audio);
             Functions.SelectLoadLevel("Menu");

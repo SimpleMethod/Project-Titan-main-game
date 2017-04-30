@@ -67,6 +67,12 @@
       "Color": "FF8E00FF"
     }
   ],
+  "PL-PL.VeryLow": "Bardzo niska",
+  "PL-PL.Low": "Niska",
+  "PL-PL.Medium": "Średnia",
+  "PL-PL.High": "Wysoka",
+  "PL-PL.VeryHigh": "Bardzo wysoka",
+  "PL-PL.Ultra": "Ultra",
   "PL-PL.MenuStartText": "Naciśnij klawisz [{0}], aby rozpocząć",
   "PL-PL.Status": "Status: {0}",
   "PL-PL.LoadLastSave": "WZNÓW",

@@ -67,13 +67,28 @@ public class Config : MonoBehaviour
         Application.targetFrameRate = (int)ConfigTable[35];
         QualitySettings.antiAliasing = (int)ConfigTable[1];
         
-        if (ConfigTable[26] == 0)
+        if(ConfigTable[33]== 0)
         {
-            Screen.SetResolution((int)ConfigTable[24], (int)ConfigTable[25], false, (int)ConfigTable[34]);
+            if (ConfigTable[26] == 0)
+            {
+                Screen.SetResolution((int)ConfigTable[24], (int)ConfigTable[25], false, (int)ConfigTable[34]);
+            }
+            else
+            {
+                Screen.SetResolution((int)ConfigTable[24], (int)ConfigTable[25], true, (int)ConfigTable[34]);
+            }
+
         }
-        else
+      else
         {
-            Screen.SetResolution((int)ConfigTable[24], (int)ConfigTable[25], true, (int)ConfigTable[34]);
+            if (ConfigTable[26] == 0)
+            {
+                Screen.SetResolution((int)ConfigTable[24]* (int)ConfigTable[32], (int)ConfigTable[25] * (int)ConfigTable[32], false, (int)ConfigTable[34]);
+            }
+            else
+            {
+                Screen.SetResolution((int)ConfigTable[24] * (int)ConfigTable[32], (int)ConfigTable[25] * (int)ConfigTable[32], true, (int)ConfigTable[34]);
+            }
         }
         if (ConfigTable[38] == 1)
         {

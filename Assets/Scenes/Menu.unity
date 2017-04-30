@@ -4015,6 +4015,21 @@ Prefab:
       propertyPath: Dropdown.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114718400776273862, guid: 7efd8bd7deff9a0459fd124b931293c9,
+        type: 2}
+      propertyPath: m_Options.m_Options.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452505262336626, guid: 7efd8bd7deff9a0459fd124b931293c9,
+        type: 2}
+      propertyPath: m_Options.m_Options.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114265140069696192, guid: 7efd8bd7deff9a0459fd124b931293c9,
+        type: 2}
+      propertyPath: m_Options.m_Options.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114386246566263034, guid: 7efd8bd7deff9a0459fd124b931293c9,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -4268,6 +4283,56 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114718400776273862, guid: 7efd8bd7deff9a0459fd124b931293c9,
+        type: 2}
+      propertyPath: m_Options.m_Options.Array.data[2].m_Text
+      value: Option C
+      objectReference: {fileID: 0}
+    - target: {fileID: 114718400776273862, guid: 7efd8bd7deff9a0459fd124b931293c9,
+        type: 2}
+      propertyPath: m_Options.m_Options.Array.data[1].m_Text
+      value: B
+      objectReference: {fileID: 0}
+    - target: {fileID: 114718400776273862, guid: 7efd8bd7deff9a0459fd124b931293c9,
+        type: 2}
+      propertyPath: m_Options.m_Options.Array.data[0].m_Text
+      value: B
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452505262336626, guid: 7efd8bd7deff9a0459fd124b931293c9,
+        type: 2}
+      propertyPath: m_Options.m_Options.Array.data[0].m_Text
+      value: Option C
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452505262336626, guid: 7efd8bd7deff9a0459fd124b931293c9,
+        type: 2}
+      propertyPath: m_Options.m_Options.Array.data[1].m_Text
+      value: Option C
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452505262336626, guid: 7efd8bd7deff9a0459fd124b931293c9,
+        type: 2}
+      propertyPath: m_Options.m_Options.Array.data[2].m_Text
+      value: Option C
+      objectReference: {fileID: 0}
+    - target: {fileID: 114452505262336626, guid: 7efd8bd7deff9a0459fd124b931293c9,
+        type: 2}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114265140069696192, guid: 7efd8bd7deff9a0459fd124b931293c9,
+        type: 2}
+      propertyPath: m_Options.m_Options.Array.data[0].m_Text
+      value: Option C
+      objectReference: {fileID: 0}
+    - target: {fileID: 114265140069696192, guid: 7efd8bd7deff9a0459fd124b931293c9,
+        type: 2}
+      propertyPath: m_Options.m_Options.Array.data[1].m_Text
+      value: Option C
+      objectReference: {fileID: 0}
+    - target: {fileID: 114265140069696192, guid: 7efd8bd7deff9a0459fd124b931293c9,
+        type: 2}
+      propertyPath: m_Options.m_Options.Array.data[2].m_Text
+      value: Option C
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7efd8bd7deff9a0459fd124b931293c9, type: 2}
