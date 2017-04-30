@@ -1,29 +1,36 @@
 ﻿using System;
 using UnityEngine;
 
-public class SendData : MonoBehaviour {
+public class SendData : MonoBehaviour
+{
 
     // static public string _example;
     static public int _fieldOfView;
     static public int _fastHDR;
     static public int _overallGraphicsQuality;
     static public int _postProcessQuality;
+    static public int _resolutionW;
+    static public int _resolutionH;
+
     static public int _resolutionScale;
     static public int _resolutionScaleMode;
- //   static public float _master_Volume;
- //   static public float _volume_Music;
     static public string _levelload;
     static public string _uniqueid;
-    static public string _language ="PL-PL";
+    static public string _language = "PL-PL";
     static public bool _OnlineAccess;
     public static readonly string _File = "Language";
 
 #if UNITY_EDITOR
-    static public float _master_Volume=1f;
-    static public float _volume_Music=1f;
+    static public float _master_Volume = 1f;
+    static public float _volume_Music = 1f;
+    static public int _FPSLimit = 30;
+    static public bool _vsync = true;
+
 #else
     static public float _master_Volume;
     static public float _volume_Music;
+    static public int _FPSLimit;
+    static public bool _vsync;
 #endif
     static public string _simpleconfigplacehorder = @"{'Graphic.anisotropicFiltering': 0,
 'Graphic.antiAliasing': 8, 

@@ -62,11 +62,21 @@ public class Config : MonoBehaviour
         SendData._volume_Music = ConfigTable[37];
         SendData._resolutionScale = (int)ConfigTable[32];
         SendData._resolutionScaleMode = (int)ConfigTable[33];
+        SendData._resolutionW = (int)ConfigTable[24];
+        SendData._resolutionH= (int)ConfigTable[25];
         QualitySettings.SetQualityLevel ((int)ConfigTable[30], true);
         QualitySettings.vSyncCount = (int)ConfigTable[22];
         Application.targetFrameRate = (int)ConfigTable[35];
         QualitySettings.antiAliasing = (int)ConfigTable[1];
-        
+        SendData._FPSLimit = (int)ConfigTable[34];
+        if (ConfigTable[22]==1)
+        {
+            SendData._vsync = true;
+        }
+        else
+        {
+            SendData._vsync = false;
+        }
         if(ConfigTable[33]== 0)
         {
             if (ConfigTable[26] == 0)

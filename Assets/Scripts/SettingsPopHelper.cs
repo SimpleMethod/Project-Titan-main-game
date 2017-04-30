@@ -85,21 +85,65 @@ public class SettingsPopHelper : MonoBehaviour
         qul[2].ID = 2;
         qul[2].level = 2;
         qul[2].Name = ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Medium");
-        //qul[3].ID = 3;
-        //qul[3].level = 3;
-        //qul[3].Name = ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "High");
-        //qul[4].ID = 4;
-        //qul[4].level = 4;
-        //qul[4].Name = ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "VeryHigh");
-        //qul[5].ID = 5;
-        //qul[5].level = 5;
-        //qul[6].Name = ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Ultra");
-        List<string> Qality = new List<string> { ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "VeryLow"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Low"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Medium"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "High"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "VeryHigh"),ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Ultra")};
+        qul[3].ID = 3;
+        qul[3].level = 3;
+        qul[3].Name = ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "High");
+        qul[4].ID = 4;
+        qul[4].level = 4;
+        qul[4].Name = ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "VeryHigh");
+        qul[5].ID = 5;
+        qul[5].level = 5;
+        qul[5].Name = ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Ultra");
+        List<string> Qality = new List<string> { ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "VeryLow"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Low"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Medium"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "High"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "VeryHigh"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Ultra") };
         List<string> ResDropDown = new List<string> { "1280×720 (16:9)", "1280x768 (16:10)", "1280x800 (16:10)", "1360x768 (16:9)", "1366:768 (16:9)", "1600x900 (16:9)", "1920x1080 (16:9)", "1920x1200 (16:10)", "2048x1152 (16:9)", "2560x1440 (16:9)", "3840x2160 (16:9)", "NaN" };
-        List<string> FPSLimits = new List<string> { "30","60","90","120","144","166","240","300" };
+        List<string> FPSLimits = new List<string> { "30", "60", "90", "120", "144", "166", "240", "300" };
         Dropdown[0].AddOptions(ResDropDown);
         Dropdown[1].AddOptions(FPSLimits);
         Dropdown[2].AddOptions(Qality);
+
+        for (int i = 0; i < 11; i++)
+        {
+            if (res[i].Width == SendData._resolutionW && res[i].Height == SendData._resolutionH)
+            {
+                Dropdown[0].value = i;
+                if (i == 10)
+                {
+                    Dropdown[0].value = 11;
+                }
+            }
+        }
+        switch (SendData._FPSLimit)
+        {
+
+            case 30:
+                Dropdown[1].value = 0;
+                break;
+            case 60:
+                Dropdown[1].value = 1;
+                break;
+            case 90:
+                Dropdown[1].value = 2;
+                break;
+            case 120:
+                Dropdown[1].value = 3;
+                break;
+            case 144:
+                Dropdown[1].value = 4;
+                break;
+            case 166:
+                Dropdown[1].value = 5;
+                break;
+            case 244:
+                Dropdown[1].value = 6;
+                break;
+            case 300:
+                Dropdown[1].value = 7;
+                break;
+            default:
+                Dropdown[1].value = 0;
+                break;
+        }
+
     }
 
     // Use this for initialization
@@ -121,7 +165,33 @@ public class SettingsPopHelper : MonoBehaviour
         Text text7 = Text[7].GetComponent<Text>();
         text7.text = ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Refuse");
         Slider.value = SendData._master_Volume;
+        Dropdown[2].value = QualitySettings.GetQualityLevel();
+        Toogle.isOn = SendData._vsync;
     }
+
+    public void UpdateVoice()
+    {
+        Debug.LogError(Slider.value);
+
+    }
+
+    public void UpdateResolution()
+    {
+        Debug.Log(Dropdown[0].value);
+    }
+    public void UpdateVerticalSync(bool update)
+    {
+        Debug.LogError(update);
+    }
+    public void UpdateFrameRate()
+    {
+
+    }
+    public void UpdateQuality()
+    {
+
+    }
+
 
     // Update is called once per frame
     void Update()

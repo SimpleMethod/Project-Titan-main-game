@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ConfigHelper : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+    public GameObject Panel;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
