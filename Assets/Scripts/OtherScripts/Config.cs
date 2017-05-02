@@ -64,11 +64,12 @@ public class Config : MonoBehaviour
         SendData._resolutionScaleMode = (int)ConfigTable[33];
         SendData._resolutionW = (int)ConfigTable[24];
         SendData._resolutionH= (int)ConfigTable[25];
+        SendData._FPSLimit = (int)ConfigTable[35];
+
         QualitySettings.SetQualityLevel ((int)ConfigTable[30], true);
         QualitySettings.vSyncCount = (int)ConfigTable[22];
         Application.targetFrameRate = (int)ConfigTable[35];
         QualitySettings.antiAliasing = (int)ConfigTable[1];
-        SendData._FPSLimit = (int)ConfigTable[34];
         if (ConfigTable[22]==1)
         {
             SendData._vsync = true;
@@ -81,11 +82,11 @@ public class Config : MonoBehaviour
         {
             if (ConfigTable[26] == 0)
             {
-                Screen.SetResolution((int)ConfigTable[24], (int)ConfigTable[25], false, (int)ConfigTable[34]);
+                Screen.SetResolution((int)ConfigTable[24], (int)ConfigTable[25], true, (int)ConfigTable[35]);
             }
             else
             {
-                Screen.SetResolution((int)ConfigTable[24], (int)ConfigTable[25], true, (int)ConfigTable[34]);
+                Screen.SetResolution((int)ConfigTable[24], (int)ConfigTable[25], true, (int)ConfigTable[35]);
             }
 
         }
@@ -93,13 +94,16 @@ public class Config : MonoBehaviour
         {
             if (ConfigTable[26] == 0)
             {
-                Screen.SetResolution((int)ConfigTable[24]* (int)ConfigTable[32], (int)ConfigTable[25] * (int)ConfigTable[32], false, (int)ConfigTable[34]);
+                Screen.SetResolution((int)ConfigTable[24]* (int)ConfigTable[32], (int)ConfigTable[25] * (int)ConfigTable[32], false, (int)ConfigTable[35]);
             }
             else
             {
-                Screen.SetResolution((int)ConfigTable[24] * (int)ConfigTable[32], (int)ConfigTable[25] * (int)ConfigTable[32], true, (int)ConfigTable[34]);
+                Screen.SetResolution((int)ConfigTable[24] * (int)ConfigTable[32], (int)ConfigTable[25] * (int)ConfigTable[32], true, (int)ConfigTable[35]);
             }
         }
+
+
+        // DEV OPTIONS
         if (ConfigTable[38] == 1)
         {
             if (ConfigTable[0] == 1)
