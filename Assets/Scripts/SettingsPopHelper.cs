@@ -10,7 +10,9 @@ public class SettingsPopHelper : MonoBehaviour
     public Dropdown[] Dropdown;
     public Slider Slider;
     public Toggle Toogle;
-
+    public GameObject pop;
+    private bool status;
+    private float ToggleSatus;
     public struct Resolution
     {
         public int ID, Width, Height;
@@ -21,16 +23,21 @@ public class SettingsPopHelper : MonoBehaviour
         public int ID, level;
         public String Name;
     }
+    public struct FPSLimits
+    {
+        public int ID;
+        public float Name;
+    }
     ReadJsonFileHelper ReadFileJ = new ReadJsonFileHelper();
-
+    Resolution[] res = new Resolution[11];
+    QualityLevel[] qul = new QualityLevel[6];
+    FPSLimits[] fps = new FPSLimits[9];
     public void GenerationResolution()
     {
         // Screen.currentResolution.width Screen.currentResolution.height;
         //Debug.Log(Screen.currentResolution.width + "x" + Screen.currentResolution.height);
 
-
-        Resolution[] res = new Resolution[11];
-        QualityLevel[] qul = new QualityLevel[6];
+       
         res[0].ID = 0;
         res[0].Width = 1280;
         res[0].Height = 720;
@@ -94,9 +101,28 @@ public class SettingsPopHelper : MonoBehaviour
         qul[5].ID = 5;
         qul[5].level = 5;
         qul[5].Name = ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Ultra");
+
+        fps[0].ID = 0;
+        fps[0].Name = 30;
+        fps[1].ID = 1;
+        fps[1].Name = 60;
+        fps[2].ID = 2;
+        fps[2].Name = 90;
+        fps[3].ID = 3;
+        fps[3].Name = 120;
+        fps[4].ID = 4;
+        fps[4].Name = 144;
+        fps[5].ID = 5;
+        fps[5].Name = 166;
+        fps[6].ID = 6;
+        fps[6].Name = 240;
+        fps[7].ID = 7;
+        fps[7].Name = 300;
+        fps[8].ID = 8;
+        fps[8].Name = 360;
         List<string> Qality = new List<string> { ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "VeryLow"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Low"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Medium"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "High"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "VeryHigh"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Ultra") };
         List<string> ResDropDown = new List<string> { "1280×720 (16:9)", "1280x768 (16:10)", "1280x800 (16:10)", "1360x768 (16:9)", "1366:768 (16:9)", "1600x900 (16:9)", "1920x1080 (16:9)", "1920x1200 (16:10)", "2048x1152 (16:9)", "2560x1440 (16:9)", "3840x2160 (16:9)", "NaN" };
-        List<string> FPSLimits = new List<string> { "30", "60", "90", "120", "144", "166", "240", "300" };
+        List<string> FPSLimits = new List<string> { "30", "60", "90", "120", "144", "166", "240", "300","360" };
         Dropdown[0].AddOptions(ResDropDown);
         Dropdown[1].AddOptions(FPSLimits);
         Dropdown[2].AddOptions(Qality);
@@ -106,7 +132,7 @@ public class SettingsPopHelper : MonoBehaviour
             if (res[i].Width == SendData._resolutionW && res[i].Height == SendData._resolutionH)
             {
                 Dropdown[0].value = i;
-                if (i == 10)
+                if (i == 11)
                 {
                     Dropdown[0].value = 11;
                 }
@@ -139,6 +165,9 @@ public class SettingsPopHelper : MonoBehaviour
             case 300:
                 Dropdown[1].value = 7;
                 break;
+            case 360:
+                Dropdown[1].value = 8;
+                break;
             default:
                 Dropdown[1].value = 0;
                 break;
@@ -167,32 +196,53 @@ public class SettingsPopHelper : MonoBehaviour
         Slider.value = SendData._master_Volume;
         Dropdown[2].value = QualitySettings.GetQualityLevel();
         Toogle.isOn = SendData._vsync;
+        status = true;
     }
 
     public void UpdateVoice()
     {
-        Debug.LogError(Slider.value);
-
     }
-
     public void UpdateResolution()
     {
-        Debug.Log(Dropdown[0].value);
     }
-    public void UpdateVerticalSync(bool update)
-    {
-        Debug.LogError(update);
+    public void UpdateVerticalSync()
+    {  
+        if(Toogle.isOn)
+        {
+            ToggleSatus = 1.0f;
+        }
+        else
+        {
+            ToggleSatus = 0.0f;
+        }
     }
     public void UpdateFrameRate()
     {
-
     }
     public void UpdateQuality()
     {
-
     }
 
+    public void SaveConfig()
+    {
+        if (status == true)
+        {
+            
+            Functions.UpdateConfig("Audio.Master_Volume", Slider.value);
+            Functions.UpdateConfig("Graphic.SetResolutionW", res[Dropdown[0].value].Width);
+            Functions.UpdateConfig("Graphic.SetResolutionH", res[Dropdown[0].value].Height);
+            Functions.UpdateConfig("Graphic.FPSMaxRender", fps[Dropdown[1].value].Name);
+            Functions.UpdateConfig("Graphic.OverallGraphicsQuality",qul[Dropdown[2].value].level);
+            Functions.UpdateConfig("Graphic.vSyncCount", ToggleSatus);
+           
+        }
+    }
 
+    public void CloseApp()
+    {
+        Debug.Log("Zamknięcie aplikacji");
+        pop.gameObject.SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {
