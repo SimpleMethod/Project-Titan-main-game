@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ConfigHelper.cs" />
+    <Compile Include="Assets\OnlineHelper.cs" />
     <Compile Include="Assets\Scripts\Credits\Credits.cs" />
     <Compile Include="Assets\Scripts\FadeOut.cs" />
     <Compile Include="Assets\Scripts\Intro\IntroScript.cs" />
@@ -103,9 +104,7 @@
     <Compile Include="Assets\Scripts\Menu\MenuTextHelper.cs" />
     <Compile Include="Assets\Scripts\Menu\PopUpHelper.cs" />
     <Compile Include="Assets\Scripts\Menu\SettingsPopHelper.cs" />
-    <Compile Include="Assets\Scripts\Online\SimpleCamera.cs" />
     <Compile Include="Assets\Scripts\Online\SimpleMove.cs" />
-    <Compile Include="Assets\Scripts\Online\SimpleMoveHelper.cs" />
     <Compile Include="Assets\Scripts\OtherScripts\Ansel.cs" />
     <Compile Include="Assets\Scripts\OtherScripts\AnselOn.cs" />
     <Compile Include="Assets\Scripts\OtherScripts\Config.cs" />
