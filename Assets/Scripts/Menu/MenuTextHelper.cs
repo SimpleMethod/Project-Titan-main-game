@@ -9,7 +9,7 @@ public class MenuTextHelper : MonoBehaviour
 {
     private bool RunStatus = false;
     public Canvas AntiClicker;
-    public Animator anim;
+    public Animator anim,anim2;
     public Text textgameobject;
     int jumpHash = Animator.StringToHash("Start");
     ReadJsonFileHelper ReadFileJ = new ReadJsonFileHelper();
@@ -24,7 +24,22 @@ public class MenuTextHelper : MonoBehaviour
         Text text = textgameobject.GetComponent<Text>();
         text.text = String.Format(ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "MenuStartText"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "KeySpace"));
 
+#if UNITY_EDITOR
+        CanvasGroup EDITORHeler;
+        GameObject CanvasEDITORHelper = GameObject.Find("Buttons");
+        EDITORHeler = CanvasEDITORHelper.GetComponent<CanvasGroup>();
+        EDITORHeler.alpha = 1f;
+#else
+        CanvasGroup EDITORHeler;
+        GameObject CanvasEDITORHelper = GameObject.Find("Buttons");
+        EDITORHeler = CanvasEDITORHelper.GetComponent<CanvasGroup>();
+        EDITORHeler.alpha = 0f;
+#endif
+
+
         anim = GetComponent<Animator>();
+        GameObject anim2Helper = GameObject.Find("Buttons");
+        anim2 = anim2Helper.GetComponent<Animator>();
         text = GetComponent<Text>();
     }
     void StarAnimation() { }
@@ -39,6 +54,8 @@ public class MenuTextHelper : MonoBehaviour
             //  Debug.LogError(CrossPlatformInputManager.GetButtonDown("Jump"));         //    anim.SetTrigger(End);  //float move = Input.GetAxis("Vertical"); // anim.SetFloat("Speed", move);  //   AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
             anim.SetTrigger(jumpHash);
             anim.StopPlayback();
+            anim2.SetTrigger(jumpHash);
+            anim2.StopPlayback();
             textgameobject.enabled = false;
             RunStatus = true;
         }

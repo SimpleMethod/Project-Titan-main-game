@@ -16,7 +16,7 @@ public class ButtonAnimation : MonoBehaviour
         this.gameObject.AddComponent<Animator>();
         can = GetComponent<CanvasGroup>();
         anim = GetComponent<Animator>();
-        anim.runtimeAnimatorController = Resources.Load("Animations/ButtonsPanelsFadeIn/Buttons") as RuntimeAnimatorController; // Nie chce się załadować animacja
+        anim.runtimeAnimatorController = Resources.Load("Animations/ButtonsPanelsFadeIn/Buttons") as RuntimeAnimatorController; 
         can.alpha = 0;
     }
 

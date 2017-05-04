@@ -69,7 +69,7 @@ class ReadJsonFileHelper : Functions
         string Path = File.ReadAllText(Application.dataPath + "/LanguageDataBase/" + FileName + ".json");
         JObject rss = JObject.Parse(Path);
         string itemTitle = (string)rss[Language + "." + SearchRequest][NumberOfElements][SearchRequestChildren];
-        print(itemTitle);
+     //   print(itemTitle);
         return itemTitle;
     }
      public string ReadJsonFile(string FileName, string Language, string SearchRequest)
@@ -77,7 +77,7 @@ class ReadJsonFileHelper : Functions
         string Path = File.ReadAllText(Application.dataPath + "/LanguageDataBase/" + FileName + ".json");
         JObject rss = JObject.Parse(Path);
         string itemTitle = (string)rss[Language + "." + SearchRequest];
-        print(itemTitle);
+      //  print(itemTitle);
         return itemTitle;
     }
 }
@@ -192,4 +192,22 @@ public class Functions : MonoBehaviour
 
     }
 
+
+    static public bool UpdateConfig(string name, float value)
+    {
+        string Path = File.ReadAllText(CurrentDirectory() + @"\config.json");
+        JObject Code = JObject.Parse(Path);
+        string gender = (string)Code[name];
+        Code[name] = value;
+        string result = Code.ToString();
+        File.WriteAllText(CurrentDirectory() + @"\config.json", String.Empty);
+        File.WriteAllText(CurrentDirectory() + @"\config.json", result);
+        //JObject jsonObj = (JObject)JsonConvert.DeserializeObject(Path);
+        //jsonObj.Property(name).Value = value;
+
+        //UnityEngine.Debug.Log(JsonConvert.SerializeObject(jsonObj));
+        return true;
+
+
+    }
 }
