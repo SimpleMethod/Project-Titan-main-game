@@ -5,50 +5,63 @@ using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.Networking;
 public class SimpleMove : NetworkBehaviour
 {
-
     [SyncVar]
-    public string nick = "Gracz ";
+    public string PlayerID = "Gracz";
+    public GameObject cameraplace;
 
-    public GameObject Pistolet;
-    public Transform PistoletSpawn;
-    float Szybkosc = 10f;
-    float ObrotSzybkosc = 100f;
-    // Use this for initialization
+
+    private  float speed = 10.0F;
+    private float rotationSpeed = 100.0F;
+    private int status = 0;
+
+    [Command]
+    public void CmdChangeName(string newName)
+    {
+        PlayerID = PlayerID + " ID:" + SendData._uniqueid + " HASH:" + Random.Range(-10.0f, 10.0f);
+    }
+
+    void OnGUI()
+    {
+        if (isLocalPlayer)
+        {
+            Camera.main.transform.position = cameraplace.transform.position;
+            Camera.main.transform.rotation = cameraplace.transform.rotation;
+            PlayerID = GUI.TextField(new Rect(Screen.width / 2, 0, 100, 30), PlayerID);
+            //if (GUI.Button(new Rect(130, Screen.height - 40, 100, 30), "Change Name"))
+            //{
+            //    CmdChangeName(PlayerID);
+            //}
+        }
+    }
+
     void Start()
     {
-    }
+        if (isLocalPlayer)
+        {
+            status = 1;
+           
+        }
 
-    // Update is called once per frame
+    }
     void Update()
     {
-        if (!isLocalPlayer)
+        this.GetComponentInChildren<TextMesh>().text = PlayerID;
+        if (status==1)
         {
-            return;
+            float translation = CrossPlatformInputManager.GetAxis("Vertical") * speed;
+            float rotation = CrossPlatformInputManager.GetAxis("Horizontal") * rotationSpeed;
+            translation *= Time.deltaTime;
+            rotation *= Time.deltaTime;
+            transform.Translate(0, 0, translation);
+            transform.Rotate(0, rotation, 0);
         }
-        float Ruch = CrossPlatformInputManager.GetAxis("Vertical") * Szybkosc;
-        float Obrot = CrossPlatformInputManager.GetAxis("Horizontal") * ObrotSzybkosc;
-        Ruch *= Time.deltaTime;
-        Obrot *= Time.deltaTime;
-        transform.Translate(0, 0, Ruch);
-        transform.Rotate(0, Obrot, 0);
-
-        if (CrossPlatformInputManager.GetButtonDown(KeyMap._Submit))
-        {
-            Fire();
-        }
-
-    }
-
-    void Fire()
-    {
-        GameObject pocisk = (GameObject)Instantiate(Pistolet, PistoletSpawn.position, PistoletSpawn.rotation);
-        pocisk.GetComponent<Rigidbody>().velocity = pocisk.transform.forward * 10f;
-        Destroy(pocisk, 3f);
     }
     public override void OnStartLocalPlayer()
     {
+       
         //    base.OnStartLocalPlayer();
-        this.GetComponentInChildren<TextMesh>().text = nick;
         GetComponent<MeshRenderer>().material.color = Color.red;
+       CmdChangeName("");
+        
     }
 }
