@@ -149,7 +149,7 @@ public class Functions : MonoBehaviour
 
             catch (Exception e)
             {
-                UnityEngine.Debug.LogError("Błąd:" + e.StackTrace);
+            //    UnityEngine.Debug.LogError("Błąd:" + e.StackTrace);
                 Client();
                 status += 1;
             }

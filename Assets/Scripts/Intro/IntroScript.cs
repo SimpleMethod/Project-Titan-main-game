@@ -11,14 +11,8 @@ public class IntroScript : MonoBehaviour
     private bool Status;
     private void Awake()
     {
-        if (Functions.CreateConfig())
-        {
-
-        }
-        else
-        {
-
-        }
+        Functions.CreateConfig();
+ 
 
     }
 
@@ -33,7 +27,7 @@ public class IntroScript : MonoBehaviour
         }
         catch
         {
-            UnityEngine.Debug.LogError("Błąd otwarcia pliku INTRO");
+        //   UnityEngine.Debug.LogError("Błąd otwarcia pliku INTRO");
             SendData._OnlineAccess = false;
         }
     }
@@ -52,10 +46,9 @@ public class IntroScript : MonoBehaviour
         Video.source = VideoSource.VideoClip;
         Video.renderMode = VideoRenderMode.CameraNearPlane;
         Video.aspectRatio = VideoAspectRatio.NoScaling;
-        Video.playOnAwake = false;
         Video.isLooping = false;
         Video.clip = NazwaPliku;
-        Video.Prepare();
+       // Video.Prepare();
 
         Video.Play();
         Audio.Play();
@@ -70,8 +63,8 @@ public class IntroScript : MonoBehaviour
     {
         if ((Status == true && !Video.isPlaying) || CrossPlatformInputManager.GetButtonDown(KeyMap._Submit))
         {
-            Destroy(Video);
-            Destroy(Audio);
+          //  Destroy(Video);
+          //  Destroy(Audio);
             Functions.SelectLoadLevel("Menu");
         }
     }
