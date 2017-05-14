@@ -89,7 +89,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Online\CameraFacing.cs" />
+=======
+    <Compile Include="Assets\ConfigHelper.cs" />
+>>>>>>> e5d5626881c0ee046e7172c0f078022a9a1903c5
     <Compile Include="Assets\Scripts\Credits\Credits.cs" />
     <Compile Include="Assets\Scripts\Intro\IntroScript.cs" />
     <Compile Include="Assets\Scripts\LoadLevel\ChangeBackgroundScript.cs" />
