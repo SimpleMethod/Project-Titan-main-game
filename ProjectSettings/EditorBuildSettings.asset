@@ -24,8 +24,11 @@ EditorBuildSettings:
     path: Assets/sceny/Levels/Level2.unity
     guid: 00000000000000000000000000000000
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/Online.unity
     guid: a236942ca8c376f4ca560af5f424e9d1
   - enabled: 1
+=======
+>>>>>>> Multiplayer
     path: Assets/Scenes/Levels/Level2.unity
     guid: 82b16de151d7d8c46ab84aab1ee5740a

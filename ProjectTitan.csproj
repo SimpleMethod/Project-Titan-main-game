@@ -89,7 +89,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Online\CameraFacing.cs" />
+=======
+    <Compile Include="Assets\ConfigHelper.cs" />
+    <Compile Include="Assets\OnlineHelper.cs" />
+>>>>>>> Multiplayer
     <Compile Include="Assets\Scripts\Credits\Credits.cs" />
     <Compile Include="Assets\Scripts\Intro\IntroScript.cs" />
     <Compile Include="Assets\Scripts\LoadLevel\ChangeBackgroundScript.cs" />
@@ -104,9 +109,12 @@
     <Compile Include="Assets\Scripts\Menu\MenuTextHelper.cs" />
     <Compile Include="Assets\Scripts\Menu\PopUpHelper.cs" />
     <Compile Include="Assets\Scripts\Menu\SettingsPopHelper.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Online\BulletsHelper.cs" />
     <Compile Include="Assets\Scripts\Online\Health.cs" />
     <Compile Include="Assets\Scripts\Online\OnlineHelper.cs" />
+=======
+>>>>>>> Multiplayer
     <Compile Include="Assets\Scripts\Online\SimpleMove.cs" />
     <Compile Include="Assets\Scripts\OtherScripts\Ansel.cs" />
     <Compile Include="Assets\Scripts\OtherScripts\AnselOn.cs" />
