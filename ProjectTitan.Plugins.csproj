@@ -138,7 +138,6 @@
   <ItemGroup>
     <None Include="Assets\LanguageDataBase\Language.json" />
     <None Include="Assets\LanguageDataBase\json-schema1.json" />
-    <None Include="Assets\Raw Mocap Data\Animations\_CompleteAnimationList.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />

@@ -11,19 +11,8 @@ public class IntroScript : MonoBehaviour
     private bool Status;
     private void Awake()
     {
-<<<<<<< HEAD
         Functions.CreateConfig();
  
-=======
-        if (Functions.CreateConfig())
-        {
-
-        }
-        else
-        {
-
-        }
->>>>>>> e5d5626881c0ee046e7172c0f078022a9a1903c5
 
     }
 
@@ -59,11 +48,7 @@ public class IntroScript : MonoBehaviour
         Video.aspectRatio = VideoAspectRatio.NoScaling;
         Video.isLooping = false;
         Video.clip = NazwaPliku;
-<<<<<<< HEAD
        // Video.Prepare();
-=======
-        Video.Prepare();
->>>>>>> e5d5626881c0ee046e7172c0f078022a9a1903c5
 
         Video.Play();
         Audio.Play();
@@ -78,13 +63,8 @@ public class IntroScript : MonoBehaviour
     {
         if ((Status == true && !Video.isPlaying) || CrossPlatformInputManager.GetButtonDown(KeyMap._Submit))
         {
-<<<<<<< HEAD
           //  Destroy(Video);
           //  Destroy(Audio);
-=======
-            Destroy(Video);
-            Destroy(Audio);
->>>>>>> e5d5626881c0ee046e7172c0f078022a9a1903c5
             Functions.SelectLoadLevel("Menu");
         }
     }

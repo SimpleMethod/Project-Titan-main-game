@@ -9,8 +9,8 @@ public class OnlineHelper : NetworkBehaviour {
     public GameObject Canvas;
 	// Use this for initialization
 	void Start () {
-		
-	}
+    
+    }
 	
 	// Update is called once per frame
 	void Update () {

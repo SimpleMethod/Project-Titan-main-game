@@ -9,18 +9,20 @@ public class Health : NetworkBehaviour {
     public const float MaxHealth = 100f;
     [SyncVar(hook = "UpdateProgressBar")] public float RealHealth = MaxHealth;
     public RectTransform HealthBar;
-   // (hook = "UpdateProgressBar")
+    // (hook = "UpdateProgressBar")
 
     public void UpdateProgressBar(float scale)
     {
+      //  Text cameraLabel = GameObject.Find("HealthText").GetComponent<Text>();
         HealthBar.localScale = new Vector3(scale / 100, 1, 1);
+     //   cameraLabel.text = scale.ToString();
     }
     public void TakeDMG(float value)
     {
      //   if(!isServer)
-     //   {
-      //      return;
-      //  }
+     //  {
+     //      return;
+     //   }
 
 
         RealHealth -= value;
