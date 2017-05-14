@@ -56,6 +56,8 @@ public class Menu : MonoBehaviour
             //  anim.SetTrigger(jumpHash); //   anim.StopPlayback(); //PanelButton.alpha = 0; // Animacja 
             AudioSource audio = GetComponent<AudioSource>();
             audio.Play();
+            audio.volume = SendData._master_Volume;
+            
             RunStatus = true;
         }
     }

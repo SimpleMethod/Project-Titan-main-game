@@ -86,6 +86,12 @@ public class ButtonsOptions : MonoBehaviour
         Debug.Log("Credits");
         Functions.SelectLoadLevel("Credits");
     }
+    public void LoadOnline()
+    {
+
+        Debug.Log("Credits");
+        Functions.SelectLoadLevel("Online");
+    }
     public void LockMenu()
     {
         Debug.Log("Zablokowanie menu");

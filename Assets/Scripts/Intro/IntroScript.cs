@@ -8,13 +8,12 @@ public class IntroScript : MonoBehaviour
     private VideoPlayer Video;
     private VideoSource Zrodlo;
     private AudioSource Audio;
-
+    private bool Status;
     private void Awake()
     {
-        Screen.SetResolution(1920, 1080, true);
-        //Application.targetFrameRate = 30;
-        QualitySettings.SetQualityLevel(4, true);
-       // QualitySettings.vSyncCount = 1;
+        Functions.CreateConfig();
+ 
+
     }
 
     private void GetID()
@@ -28,7 +27,7 @@ public class IntroScript : MonoBehaviour
         }
         catch
         {
-            UnityEngine.Debug.LogError("Błąd otwarcia pliku INTRO");
+        //   UnityEngine.Debug.LogError("Błąd otwarcia pliku INTRO");
             SendData._OnlineAccess = false;
         }
     }
@@ -41,38 +40,31 @@ public class IntroScript : MonoBehaviour
         Audio = camera.AddComponent<AudioSource>();
         Audio.playOnAwake = false;
         Audio.Pause();
-        Audio.volume = 0.8f;
+        Audio.volume = SendData._master_Volume;
         Video.audioOutputMode = VideoAudioOutputMode.AudioSource;
         Video.SetTargetAudioSource(0, Audio);
         Video.source = VideoSource.VideoClip;
         Video.renderMode = VideoRenderMode.CameraNearPlane;
         Video.aspectRatio = VideoAspectRatio.NoScaling;
-        Video.playOnAwake = false;
         Video.isLooping = false;
         Video.clip = NazwaPliku;
-        Video.Prepare();
+       // Video.Prepare();
+
         Video.Play();
         Audio.Play();
+        Status = true;
 
-        if (Functions.CreateConfig())
-        {
 
-        }
-        else
-        {
 
-        }
-        
-        //QualitySettings.antiAliasing=16;
+
     }
 
     void Update()
     {
-        if (!Video.isPlaying || CrossPlatformInputManager.GetButtonDown(KeyMap._Submit))
+        if ((Status == true && !Video.isPlaying) || CrossPlatformInputManager.GetButtonDown(KeyMap._Submit))
         {
-            Audio.volume = 0.0f;
-            Destroy(Video);
-            Destroy(Audio);
+          //  Destroy(Video);
+          //  Destroy(Audio);
             Functions.SelectLoadLevel("Menu");
         }
     }

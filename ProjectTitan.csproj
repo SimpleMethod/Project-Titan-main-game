@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>5.6.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -87,9 +89,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\Online\CameraFacing.cs" />
     <Compile Include="Assets\Scripts\Credits\Credits.cs" />
-    <Compile Include="Assets\Scripts\FadeOut.cs" />
     <Compile Include="Assets\Scripts\Intro\IntroScript.cs" />
     <Compile Include="Assets\Scripts\LoadLevel\ChangeBackgroundScript.cs" />
     <Compile Include="Assets\Scripts\LoadLevel\ChangeText.cs" />
@@ -102,13 +103,17 @@
     <Compile Include="Assets\Scripts\Menu\MenuPlayAudio.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuTextHelper.cs" />
     <Compile Include="Assets\Scripts\Menu\PopUpHelper.cs" />
+    <Compile Include="Assets\Scripts\Menu\SettingsPopHelper.cs" />
+    <Compile Include="Assets\Scripts\Online\BulletsHelper.cs" />
+    <Compile Include="Assets\Scripts\Online\Health.cs" />
+    <Compile Include="Assets\Scripts\Online\OnlineHelper.cs" />
+    <Compile Include="Assets\Scripts\Online\SimpleMove.cs" />
     <Compile Include="Assets\Scripts\OtherScripts\Ansel.cs" />
     <Compile Include="Assets\Scripts\OtherScripts\AnselOn.cs" />
     <Compile Include="Assets\Scripts\OtherScripts\Config.cs" />
     <Compile Include="Assets\Scripts\OtherScripts\Flading.cs" />
     <Compile Include="Assets\Scripts\OtherScripts\Functions.cs" />
     <Compile Include="Assets\Scripts\OtherScripts\MainConsoleScript.cs" />
-    <Compile Include="Assets\Scripts\SettingsPopHelper.cs" />
     <Compile Include="Assets\SimpleDataBase\KeyMap.cs" />
     <Compile Include="Assets\SimpleDataBase\SendData.cs" />
     <Compile Include="Assets\Start.cs" />
