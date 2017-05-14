@@ -20,9 +20,12 @@ public class SendData : MonoBehaviour
     static public bool _OnlineAccess;
     public static readonly string _File = "Language";
 
+<<<<<<< HEAD
     static public bool _openmenu;
     static public bool _openchat;
     static public bool _livestatus;
+=======
+>>>>>>> e5d5626881c0ee046e7172c0f078022a9a1903c5
 #if UNITY_EDITOR
     static public float _master_Volume = 1f;
     static public float _volume_Music = 1f;
