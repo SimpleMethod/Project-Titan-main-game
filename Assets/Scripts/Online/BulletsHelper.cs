@@ -9,9 +9,11 @@ public class BulletsHelper : MonoBehaviour {
         GameObject HitTarget = collision.gameObject;
         Health health = HitTarget.GetComponent<Health>();
 
-        if(health != null)
+        HealthObjects HealthObjects = HitTarget.GetComponent<HealthObjects>();
+        if (health != null)
         {
             health.TakeDMG(10);
+            HealthObjects.TakeDMG(10);
         }
         Destroy(gameObject);
     }

@@ -218,7 +218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -217.9, y: 2.8}
+  m_AnchoredPosition: {x: -217.9, y: 2.8000002}
   m_SizeDelta: {x: 100, y: 79}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &113866768
@@ -1395,6 +1395,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 56ac535546580114084285e35069df71, type: 3}
   textgameobject: {fileID: 1343986602}
   signgameobject: {fileID: 113866769}
+  OnlineButton: {fileID: 0}
 --- !u!4 &739979449
 Transform:
   m_ObjectHideFlags: 0
@@ -1639,7 +1640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00013780594, y: 2.8}
+  m_AnchoredPosition: {x: -0.00013780594, y: 2.8000002}
   m_SizeDelta: {x: 334, y: 63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &858982262
@@ -2667,7 +2668,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 0.35294116, b: 0.35294116, a: 1}
-    m_DisabledColor: {r: 0.38235295, g: 0.38235295, b: 0.38235295, a: 1}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3238,47 +3239,6 @@ Transform:
   m_Father: {fileID: 162355979}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1409755524
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1409755526}
-  - component: {fileID: 1409755525}
-  m_Layer: 0
-  m_Name: ConfigOptions
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1409755525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1409755524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5be892abc5889f74d8a1e5236f786622, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Panel: {fileID: 0}
---- !u!4 &1409755526
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1409755524}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19156075, y: 0.9113555, z: 106.115234}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1509791394
 GameObject:
   m_ObjectHideFlags: 0
@@ -3820,7 +3780,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &2005333717 stripped
 RectTransform:

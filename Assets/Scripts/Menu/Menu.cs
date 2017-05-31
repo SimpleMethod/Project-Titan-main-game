@@ -14,6 +14,7 @@ public class Menu : MonoBehaviour
     static public bool ReadyToGetID;
     public AudioClip audioClip;
     public Text textgameobject, signgameobject;
+    public Transform OnlineButton;
     ReadJsonFileHelper ReadFileJ = new ReadJsonFileHelper();
     // public CanvasGroup PanelButton;
 
@@ -47,6 +48,7 @@ public class Menu : MonoBehaviour
                 sign.color = new Color32(255, 242, 0, 255);
                 text.text = String.Format(ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Status"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "StatusArray", 2, "text"));
                 SendData._OnlineAccess = false;
+                OnlineButton.GetComponent<Button>().interactable = false;
             }
 
         }

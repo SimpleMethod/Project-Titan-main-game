@@ -90,7 +90,9 @@ public class ButtonsOptions : MonoBehaviour
     {
 
         Debug.Log("Credits");
-        Functions.SelectLoadLevel("Online");
+        if(SendData._OnlineAccess==true)
+        {Functions.SelectLoadLevel("Online");}
+       
     }
     public void LockMenu()
     {

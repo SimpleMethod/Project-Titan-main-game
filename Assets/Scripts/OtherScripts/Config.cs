@@ -82,7 +82,7 @@ public class Config : MonoBehaviour
         {
             if (ConfigTable[26] == 0)
             {
-                Screen.SetResolution((int)ConfigTable[24], (int)ConfigTable[25], true, (int)ConfigTable[35]);
+                Screen.SetResolution((int)ConfigTable[24], (int)ConfigTable[25], false, (int)ConfigTable[35]);
             }
             else
             {

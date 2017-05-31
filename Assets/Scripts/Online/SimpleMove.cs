@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class SimpleMove : NetworkBehaviour
 {
 
-    [SyncVar] public string PlayerID = "dD";
+    [SyncVar] public string PlayerID;
 
+   private Text AmmoText;
     public GameObject Bullet;
     public Transform BulletSpawner;
 
@@ -25,7 +26,7 @@ public class SimpleMove : NetworkBehaviour
     [SerializeField]
     private float cameraRotationLimit = 85f;
 
-
+    private int AmmoValue;
 
 
     [Command]
@@ -55,6 +56,16 @@ public class SimpleMove : NetworkBehaviour
         }
     }
 
+
+    public void AmmoSystem (bool option, int value)
+    {
+        if(option==false)
+        { AmmoValue = AmmoValue - value; }
+        else
+        { AmmoValue = AmmoValue + value; }
+       
+    }
+
     void Start()
     {
     
@@ -64,6 +75,7 @@ public class SimpleMove : NetworkBehaviour
             SendData._livestatus = true;
             SendData._openchat = false;
             SendData._openmenu = false;
+            AmmoValue = 10;
         }
 
     }
@@ -90,9 +102,16 @@ public class SimpleMove : NetworkBehaviour
             //  transform.Rotate(0, rotation, 0);
             RigBody.AddForce(_velocity);
             RigBody.MoveRotation(RigBody.rotation * deltaRotation);
-            if (/*(SendData._openmenu == false || SendData._openchat == false || SendData._livestatus == true) ||*/ CrossPlatformInputManager.GetButtonDown(KeyMap._Fire1))
+            if (/*(SendData._openmenu == false || SendData._openchat == false || SendData._livestatus == true) ||*/  AmmoValue>0 && CrossPlatformInputManager.GetButtonDown(KeyMap._Fire1))
             {
                 CmdFire();
+                --AmmoValue;
+                Debug.LogError("Ammo: " + AmmoValue);
+            }
+            if (isLocalPlayer)
+            {
+                AmmoText = GameObject.Find("AmmoText").GetComponent<Text>();
+                AmmoText.text = AmmoValue.ToString();
             }
         }
     }
@@ -110,23 +129,12 @@ public class SimpleMove : NetworkBehaviour
     }
 
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "MapsWalls")
-        {
-            //Destroy(gameObject);
-            Debug.LogError("DDD");
-        }
-          
-    }
-
-
     public override void OnStartLocalPlayer()
     {
 
         //    base.OnStartLocalPlayer();
         GetComponent<MeshRenderer>().material.color = Color.red;
-        CmdChangeName("");
+        CmdChangeName("dD");
 
     }
 }
