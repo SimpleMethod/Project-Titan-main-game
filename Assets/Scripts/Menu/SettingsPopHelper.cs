@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Text))]
+[RequireComponent(typeof(Dropdown))]
+[RequireComponent(typeof(Slider))]
+[RequireComponent(typeof(Toggle))]
+[RequireComponent(typeof(GameObject))]
+
 public class SettingsPopHelper : MonoBehaviour
 {
     public Text[] Text;
@@ -36,8 +42,6 @@ public class SettingsPopHelper : MonoBehaviour
     {
         // Screen.currentResolution.width Screen.currentResolution.height;
         //Debug.Log(Screen.currentResolution.width + "x" + Screen.currentResolution.height);
-
-       
         res[0].ID = 0;
         res[0].Width = 1280;
         res[0].Height = 720;
@@ -122,7 +126,7 @@ public class SettingsPopHelper : MonoBehaviour
         fps[8].Name = 360;
         List<string> Qality = new List<string> { ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "VeryLow"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Low"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Medium"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "High"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "VeryHigh"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Ultra") };
         List<string> ResDropDown = new List<string> { "1280×720 (16:9)", "1280x768 (16:10)", "1280x800 (16:10)", "1360x768 (16:9)", "1366:768 (16:9)", "1600x900 (16:9)", "1920x1080 (16:9)", "1920x1200 (16:10)", "2048x1152 (16:9)", "2560x1440 (16:9)", "3840x2160 (16:9)", "NaN" };
-        List<string> FPSLimits = new List<string> { "30", "60", "90", "120", "144", "166", "240", "300","360" };
+        List<string> FPSLimits = new List<string> { "30", "60", "90", "120", "144", "166", "240", "300", "360" };
         Dropdown[0].AddOptions(ResDropDown);
         Dropdown[1].AddOptions(FPSLimits);
         Dropdown[2].AddOptions(Qality);
@@ -206,8 +210,8 @@ public class SettingsPopHelper : MonoBehaviour
     {
     }
     public void UpdateVerticalSync()
-    {  
-        if(Toogle.isOn)
+    {
+        if (Toogle.isOn)
         {
             ToggleSatus = 1.0f;
         }
@@ -227,14 +231,14 @@ public class SettingsPopHelper : MonoBehaviour
     {
         if (status == true)
         {
-            
+
             Functions.UpdateConfig("Audio.Master_Volume", Slider.value);
             Functions.UpdateConfig("Graphic.SetResolutionW", res[Dropdown[0].value].Width);
             Functions.UpdateConfig("Graphic.SetResolutionH", res[Dropdown[0].value].Height);
             Functions.UpdateConfig("Graphic.FPSMaxRender", fps[Dropdown[1].value].Name);
-            Functions.UpdateConfig("Graphic.OverallGraphicsQuality",qul[Dropdown[2].value].level);
+            Functions.UpdateConfig("Graphic.OverallGraphicsQuality", qul[Dropdown[2].value].level);
             Functions.UpdateConfig("Graphic.vSyncCount", ToggleSatus);
-           
+
         }
     }
 
@@ -242,10 +246,5 @@ public class SettingsPopHelper : MonoBehaviour
     {
         Debug.Log("Zamknięcie aplikacji");
         pop.gameObject.SetActive(false);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

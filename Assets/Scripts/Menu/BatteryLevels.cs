@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Text))]
+
 public class BatteryLevels : MonoBehaviour
 {
+
     public Text[] Battery;
     public int RefreshStatus;
     // Use this for initialization
@@ -13,7 +16,6 @@ public class BatteryLevels : MonoBehaviour
 
         StartCoroutine(ChangeBatteryLevel());
     }
-
 
     IEnumerator ChangeBatteryLevel()
     {

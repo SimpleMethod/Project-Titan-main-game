@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(GameObject))]
+[RequireComponent(typeof(Text))]
+[RequireComponent(typeof(Button))]
+
 public class ButtonsOptions : MonoBehaviour
 {
+    [SerializeField]
     private int temp;
     public GameObject Panel;
     public GameObject SettingspPop;
@@ -15,9 +20,6 @@ public class ButtonsOptions : MonoBehaviour
     ReadJsonFileHelper ReadFileJ = new ReadJsonFileHelper();
     void Start()
     {
-        //GameObject objToSpawn;
-        //objToSpawn = new GameObject("PANEL #2");
-      //  Panel.AddComponent<Canvas>();
         SettingspPop.gameObject.SetActive(false);
         pop.gameObject.SetActive(false);
     }
@@ -27,7 +29,6 @@ public class ButtonsOptions : MonoBehaviour
         pop.gameObject.SetActive(true);
         btn[0].GetComponent<Button>().onClick.AddListener(delegate { NewGame(); });
         btn[1].GetComponent<Button>().onClick.AddListener(delegate { CanelPopUP(); });
-       // ReadJsonFileHelper ReadFileJ = new ReadJsonFileHelper();
         Text text = textgameobject.GetComponent<Text>();
         text.text = ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "QuestionNewGame");
     }
@@ -36,25 +37,15 @@ public class ButtonsOptions : MonoBehaviour
         pop.gameObject.SetActive(true);
         btn[0].GetComponent<Button>().onClick.AddListener(delegate { CloseApp(); });
         btn[1].GetComponent<Button>().onClick.AddListener(delegate { CanelPopUP(); });
-       // ReadJsonFileHelper ReadFileJ = new ReadJsonFileHelper();
         Text text = textgameobject.GetComponent<Text>();
         text.text = ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "Question");
     }
     public void SetBtn()
     {
-        Debug.Log("DD");
         SettingspPop.gameObject.SetActive(true);
-        //btn[0].GetComponent<Button>().onClick.AddListener(delegate { NewGame(); });
-      //  btn[1].GetComponent<Button>().onClick.AddListener(delegate { CanelPopUP(); });
-    
-       Text text = textgameobject.GetComponent<Text>();
         SettingspPopText.text = ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "OptimalPlayableSettings");
     }
 
-
-    /// <summary>
-    /// /
-    /// </summary>
     public void CloseApp()
     {
         Debug.Log("Zamknięcie aplikacji");
@@ -82,17 +73,28 @@ public class ButtonsOptions : MonoBehaviour
 
     public void LoadCredits()
     {
-      
+
         Debug.Log("Credits");
         Functions.SelectLoadLevel("Credits");
     }
+    public void ShowSourceCode()
+    {
+        Application.OpenURL("https://github.com/SimpleMethod/-Retail-version-ProjectTitan-");
+        Debug.Log("SourceCode");
+    }
+    public void ShowProgress()
+    {
+        Functions.OpenURL(SendData._uniqueid);
+       
+    }
     public void LoadOnline()
     {
-
         Debug.Log("Credits");
-        if(SendData._OnlineAccess==true)
-        {Functions.SelectLoadLevel("Online");}
-       
+        if (SendData._OnlineAccess == true)
+        {
+            Functions.SelectLoadLevel("Online");
+        }
+
     }
     public void LockMenu()
     {
@@ -101,9 +103,8 @@ public class ButtonsOptions : MonoBehaviour
     }
     public void UnlockMenu()
     {
-       Canvas Canvas = Panel.GetComponent<Canvas>();
+        Canvas Canvas = Panel.GetComponent<Canvas>();
         Debug.Log("Oblokowanie menu");
         Destroy(Canvas);
-
     }
 }

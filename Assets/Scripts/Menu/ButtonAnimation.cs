@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(CanvasGroup))]
+
 public class ButtonAnimation : MonoBehaviour
 {
     private Animator anim;
     private CanvasGroup can;
+    [SerializeField]
     private bool RunStatus = false;
     int jumpHash = Animator.StringToHash("Start");
 
@@ -16,14 +20,13 @@ public class ButtonAnimation : MonoBehaviour
         this.gameObject.AddComponent<Animator>();
         can = GetComponent<CanvasGroup>();
         anim = GetComponent<Animator>();
-        anim.runtimeAnimatorController = Resources.Load("Animations/ButtonsPanelsFadeIn/Buttons") as RuntimeAnimatorController; 
+        anim.runtimeAnimatorController = Resources.Load("Animations/ButtonsPanelsFadeIn/Buttons") as RuntimeAnimatorController;
         can.alpha = 0;
     }
 
     void Start()
     {
         anim = GetComponent<Animator>();
-
     }
 
     void Update()
@@ -36,5 +39,4 @@ public class ButtonAnimation : MonoBehaviour
             RunStatus = true;
         }
     }
-
 }

@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Security.Cryptography;
 
 class CreateFileHelper : Functions
 {
@@ -64,25 +65,23 @@ class CreateFileHelper : Functions
 
 class ReadJsonFileHelper : Functions
 {
-     public string ReadJsonFile(string FileName, string Language, string SearchRequest, int NumberOfElements, string SearchRequestChildren)
+    public string ReadJsonFile(string FileName, string Language, string SearchRequest, int NumberOfElements, string SearchRequestChildren)
     {
         string Path = File.ReadAllText(Application.dataPath + "/LanguageDataBase/" + FileName + ".json");
         JObject rss = JObject.Parse(Path);
         string itemTitle = (string)rss[Language + "." + SearchRequest][NumberOfElements][SearchRequestChildren];
-     //   print(itemTitle);
         return itemTitle;
     }
-     public string ReadJsonFile(string FileName, string Language, string SearchRequest)
+    public string ReadJsonFile(string FileName, string Language, string SearchRequest)
     {
         string Path = File.ReadAllText(Application.dataPath + "/LanguageDataBase/" + FileName + ".json");
         JObject rss = JObject.Parse(Path);
         string itemTitle = (string)rss[Language + "." + SearchRequest];
-      //  print(itemTitle);
         return itemTitle;
     }
 }
 
-    
+
 
 public class Functions : MonoBehaviour
 {
@@ -117,7 +116,6 @@ public class Functions : MonoBehaviour
             return 1;
         }
 
-
     }
 
     static public void Client()
@@ -146,10 +144,9 @@ public class Functions : MonoBehaviour
                 SendData._OnlineAccess = true;
                 tcpclnt.Close();
             }
-
             catch (Exception e)
             {
-            //    UnityEngine.Debug.LogError("Błąd:" + e.StackTrace);
+                UnityEngine.Debug.LogError("Błąd:" + e.StackTrace);
                 Client();
                 status += 1;
             }
@@ -192,22 +189,63 @@ public class Functions : MonoBehaviour
 
     }
 
-
     static public bool UpdateConfig(string name, float value)
     {
         string Path = File.ReadAllText(CurrentDirectory() + @"\config.json");
         JObject Code = JObject.Parse(Path);
-        string gender = (string)Code[name];
         Code[name] = value;
         string result = Code.ToString();
         File.WriteAllText(CurrentDirectory() + @"\config.json", String.Empty);
         File.WriteAllText(CurrentDirectory() + @"\config.json", result);
-        //JObject jsonObj = (JObject)JsonConvert.DeserializeObject(Path);
-        //jsonObj.Property(name).Value = value;
-
-        //UnityEngine.Debug.Log(JsonConvert.SerializeObject(jsonObj));
         return true;
+    }
+    static private string CreateMD5(string input)
+    {
+        using (MD5 md5 = MD5.Create())
+        {
+            byte[] inputBytes = Encoding.ASCII.GetBytes(input);
+            byte[] hashBytes = md5.ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hashBytes.Length; i++)
+            {
+                sb.Append(hashBytes[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
+    }
 
+    static public void RequestToServer(string nick, int options, int value)
+    {
+        string html = string.Empty;
+        string url = @"http://46.101.144.157/index.php?nick=" + nick + "&opt=" + options + "&value=" + value + "&hash=" + HashURL(nick);
+        System.Net.HttpWebRequest request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(url);
+        request.AutomaticDecompression = System.Net.DecompressionMethods.GZip;
+
+        using (System.Net.HttpWebResponse response = (System.Net.HttpWebResponse)request.GetResponse())
+        using (Stream stream = response.GetResponseStream())
+        using (StreamReader reader = new StreamReader(stream))
+        {
+            html = reader.ReadToEnd();
+        }
 
     }
+
+    static public string HashURL(string nick)
+    {
+        string data = DateTime.Now.ToString("yyyy.MM");
+        string hash = CreateMD5(data + nick);
+        UnityEngine.Debug.LogError("Pre hash data:"+data + nick+" post hash:"+hash);
+        return hash;
+    }
+
+    static public void OpenURL(string nick)
+    {
+        string data = DateTime.Now.ToString("yyyy.MM");
+        string hash = CreateMD5(data + nick);
+        UnityEngine.Debug.LogError("Pre hash data:" + data + nick + " post hash:" + hash);
+        string tmp = System.String.Format(@"http://46.101.144.157/?hash={0}&opt=1&nick={1}", hash, nick);
+        UnityEngine.Debug.LogError(tmp);
+        Application.OpenURL(tmp);
+    }
+
 }

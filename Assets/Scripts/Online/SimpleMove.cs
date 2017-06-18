@@ -4,85 +4,117 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+
+[RequireComponent(typeof(GameObject))]
+[RequireComponent(typeof(Text))]
+[RequireComponent(typeof(Transform))]
+[RequireComponent(typeof(Rigidbody))]
+
 public class SimpleMove : NetworkBehaviour
 {
 
-    [SyncVar] public string PlayerID;
+    [SyncVar]
+    public string PlayerID;
 
-   private Text AmmoText;
+    public GameObject Td1, Td2;
+
+    public GameObject Crosshair;
+
     public GameObject Bullet;
     public Transform BulletSpawner;
-
     public GameObject cameraplace;
     public Rigidbody RigBody;
 
-    private float speed = 4.0F;
-    private float rotationSpeed = 100.0F;
     [SerializeField]
-    private float speedbullet = 200f;
+    private NetworkStartPosition[] spawnPoints;
+    [SerializeField]
+    private Text AmmoText;
+    [SerializeField]
+    private float speed = 15.0F;
+    [SerializeField]
     private int status = 0;
-
-
     [SerializeField]
-    private float cameraRotationLimit = 85f;
-
     private int AmmoValue;
-
+    [SerializeField]
+    private bool StatusMove;
 
     [Command]
     public void CmdChangeName(string newName)
     {
-        //  PlayerID =  SendData._uniqueid + " HASH:" + Random.Range(-10.0f, 10.0f);
+        PlayerID = newName;
+    }
 
+    private void Awake()
+    {
 #if UNITY_EDITOR
-        PlayerID = "Gracz";
+        CmdChangeName(Random.Range(-10.0f, 10.0f).ToString());
+        PlayerID = Random.Range(-10.0f, 10.0f).ToString();
+
 #else
-      PlayerID = SendData._uniqueid;
+   CmdChangeName(SendData._uniqueid);
+        PlayerID=SendData._uniqueid;
 #endif
     }
 
     void OnGUI()
     {
+
         if (isLocalPlayer)
         {
+            Td1.name = GetInstanceID().ToString();
+            Td2.name = GetInstanceID().ToString();
+            Td1.layer = LayerMask.NameToLayer("NPC");
+            Td2.layer = LayerMask.NameToLayer("NPC");
             Camera.main.transform.position = cameraplace.transform.position;
             Camera.main.transform.rotation = cameraplace.transform.rotation;
             PlayerID = GUI.TextField(new Rect(Screen.width / 2, 0, 100, 30), PlayerID);
-            CmdChangeName(PlayerID);
-            //if (GUI.Button(new Rect(130, Screen.height - 40, 100, 30), "Change Name"))
-            //{
-            //    CmdChangeName(PlayerID);
-            //}
+
         }
     }
 
 
-    public void AmmoSystem (bool option, int value)
+    public void AmmoSystem(bool option, int value)
     {
-        if(option==false)
-        { AmmoValue = AmmoValue - value; }
+        if (option == false)
+        {
+            if (AmmoValue > 0)
+            {
+                AmmoValue = AmmoValue - value;
+            }
+        }
         else
         { AmmoValue = AmmoValue + value; }
-       
+
     }
 
     void Start()
     {
-    
+
         if (isLocalPlayer)
         {
+
+            CmdChangeName(SendData._uniqueid);
             status = 1;
             SendData._livestatus = true;
             SendData._openchat = false;
             SendData._openmenu = false;
+            StatusMove = false;
             AmmoValue = 10;
+            spawnPoints = FindObjectsOfType<NetworkStartPosition>();
+            Vector3 spawnPoint = Vector3.zero;
+            if (spawnPoints != null && spawnPoints.Length > 0)
+            {
+                spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position;
+            }
+            transform.position = spawnPoint;
         }
 
     }
     void Update()
     {
         this.GetComponentInChildren<Text>().text = PlayerID;
-        if (status == 1)
+        StopMove();
+        if (status == 1 && SendData._openmenu == false)
         {
             float _xMov = Input.GetAxis("Horizontal");
             float _zMov = Input.GetAxis("Vertical");
@@ -91,22 +123,14 @@ public class SimpleMove : NetworkBehaviour
             Vector3 _velocity = (_movHorizontal + _movVertical) * speed;
             float _yRot = Input.GetAxisRaw("Mouse X");
             Vector3 _rotation = new Vector3(0f, _yRot, 0f) * 50;
-            float _xRot = Input.GetAxisRaw("Mouse Y");
-            float _cameraRotationX = _xRot * 5;
             Quaternion deltaRotation = Quaternion.Euler(_rotation * Time.deltaTime * 5);
-            //  float translation = CrossPlatformInputManager.GetAxis("Vertical") * speed;
-            //  float rotation = CrossPlatformInputManager.GetAxis("Horizontal") * rotationSpeed;
-            ////  translation *= Time.deltaTime;
-            //  rotation *= Time.deltaTime;
-            // transform.Translate(0, 0, translation);
-            //  transform.Rotate(0, rotation, 0);
             RigBody.AddForce(_velocity);
             RigBody.MoveRotation(RigBody.rotation * deltaRotation);
-            if (/*(SendData._openmenu == false || SendData._openchat == false || SendData._livestatus == true) ||*/  AmmoValue>0 && CrossPlatformInputManager.GetButtonDown(KeyMap._Fire1))
+            if (AmmoValue > 0 && CrossPlatformInputManager.GetButtonDown(KeyMap._Fire1))
             {
                 CmdFire();
                 --AmmoValue;
-                Debug.LogError("Ammo: " + AmmoValue);
+                Debug.Log("Ammo: " + AmmoValue);
             }
             if (isLocalPlayer)
             {
@@ -114,16 +138,33 @@ public class SimpleMove : NetworkBehaviour
                 AmmoText.text = AmmoValue.ToString();
             }
         }
+
     }
 
 
+    private void StopMove()
+    {
+        if (CrossPlatformInputManager.GetButtonDown(KeyMap._Cancel))
+        {
+            if (StatusMove == true)
+            {
+                RigBody.isKinematic = false;
+                StatusMove = false;
+            }
+            else
+            {
+                RigBody.isKinematic = true;
+                StatusMove = true;
+            }
 
+        }
+    }
 
     [Command]
     void CmdFire()
     {
         GameObject bullet = (GameObject)Instantiate(Bullet, BulletSpawner.position, BulletSpawner.rotation);
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 30;
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 37;
         NetworkServer.Spawn(bullet);
         Destroy(bullet, 2);
     }
@@ -131,10 +172,6 @@ public class SimpleMove : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
-
-        //    base.OnStartLocalPlayer();
         GetComponent<MeshRenderer>().material.color = Color.red;
-        CmdChangeName("dD");
-
     }
 }

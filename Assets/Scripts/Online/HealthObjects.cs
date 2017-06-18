@@ -4,21 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
+[RequireComponent(typeof(Text))]
+[RequireComponent(typeof(RectTransform))]
+
 public class HealthObjects : NetworkBehaviour
 {
 
     public const float MaxHealth = 100f;
-    [SyncVar(hook = "UpdateProgressBar")] public float RealHealth = MaxHealth;
+    [SyncVar(hook = "UpdateProgress")] public float RealHealth = MaxHealth;
     public RectTransform HealthBar;
     public Text HealthText;
-    // (hook = "UpdateProgressBar")
-
-    public void UpdateProgressBar(float scale)
+    public void UpdateProgress(float scale)
     {
-        //  Text cameraLabel = GameObject.Find("HealthText").GetComponent<Text>();
-   
         Debug.LogWarning(scale);
-        //   cameraLabel.text = scale.ToString();
     }
     public void TakeDMG(float value)
     {
@@ -28,7 +26,7 @@ public class HealthObjects : NetworkBehaviour
             RealHealth = MaxHealth;
             Destroy(gameObject);
         }
-        UpdateProgressBar(RealHealth);
+        UpdateProgress(RealHealth);
     }
 
 }

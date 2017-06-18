@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(RawImage))]
+[RequireComponent(typeof(Texture))]
+
 public class ChangeBackgroundScript : MonoBehaviour
 {
     public RawImage ImageOnPanel;
     public float SekundyDoZmiany;
-    private RawImage img;
     public Texture[] NewTexture;
-
+    [SerializeField]
+    private RawImage img;
     void Start()
     {
         StartCoroutine(ChangeBackground());

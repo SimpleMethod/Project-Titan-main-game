@@ -477,6 +477,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 908745460}
+        m_MethodName: ShowSourceCode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &268334456
@@ -1777,6 +1788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73aa47bd86ee57a4f92661ef1a11b6e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  temp: 0
   Panel: {fileID: 404583786}
   SettingspPop: {fileID: 1223726394}
   pop: {fileID: 185846473}
@@ -2603,6 +2615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91dced734650bb949bb1a42f274a3af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RunStatus: 0
 --- !u!222 &1189103736
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3932,6 +3945,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 566807400}
         m_MethodName: PlayAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 908745460}
+        m_MethodName: ShowProgress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

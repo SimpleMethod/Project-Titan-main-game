@@ -7,6 +7,7 @@ TagManager:
   - UI
   - MapsWalls
   - NPC
+  - Bonus
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - 
   - maps
-  - 
+  - NPC
   - 
   - 
   - 

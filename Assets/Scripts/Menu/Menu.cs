@@ -6,26 +6,20 @@ using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Text))]
+[RequireComponent(typeof(AudioClip))]
+
 public class Menu : MonoBehaviour
 {
-    //  public Animator anim;
-    // int jumpHash = Animator.StringToHash("Start");
     private bool RunStatus = false;
     static public bool ReadyToGetID;
     public AudioClip audioClip;
     public Text textgameobject, signgameobject;
     public Transform OnlineButton;
     ReadJsonFileHelper ReadFileJ = new ReadJsonFileHelper();
-    // public CanvasGroup PanelButton;
-
-    void Start()
-    {
-        // anim = GetComponent<Animator>();
-    }
 
     void Update()
     {
-
         Text text = textgameobject.GetComponent<Text>();
         Text sign = signgameobject.GetComponent<Text>();
 
@@ -50,16 +44,13 @@ public class Menu : MonoBehaviour
                 SendData._OnlineAccess = false;
                 OnlineButton.GetComponent<Button>().interactable = false;
             }
-
         }
 
         if (CrossPlatformInputManager.GetButtonDown(KeyMap._Submit) && RunStatus != true)
         {
-            //  anim.SetTrigger(jumpHash); //   anim.StopPlayback(); //PanelButton.alpha = 0; // Animacja 
             AudioSource audio = GetComponent<AudioSource>();
             audio.Play();
             audio.volume = SendData._master_Volume;
-            
             RunStatus = true;
         }
     }

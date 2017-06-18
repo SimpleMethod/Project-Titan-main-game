@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(GameObject))]
+
 public class HealthSystemOnObjects : MonoBehaviour {
     public bool AddHealth;
+    public int Value;
     void OnCollisionEnter(Collision collision)
     {
         GameObject HitTarget = collision.gameObject;
@@ -14,11 +18,11 @@ public class HealthSystemOnObjects : MonoBehaviour {
             if(AddHealth == false)
             {
 
-                health.TakeDMG(10);
+                health.TakeDMG(Value);
             }
             else
             {
-                health.TakeHealth(10);
+                health.TakeHealth(Value);
             }
          
         }

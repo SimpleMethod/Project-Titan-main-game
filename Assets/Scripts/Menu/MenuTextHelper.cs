@@ -5,22 +5,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 
+[RequireComponent(typeof(CanvasGroup))]
+[RequireComponent(typeof(Canvas))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Text))]
+
 public class MenuTextHelper : MonoBehaviour
 {
     private bool RunStatus = false;
     public Canvas AntiClicker;
-    public Animator anim,anim2;
+    public Animator anim, anim2;
     public Text textgameobject;
     int jumpHash = Animator.StringToHash("Start");
     ReadJsonFileHelper ReadFileJ = new ReadJsonFileHelper();
-    //  int End = Animator.StringToHash("End");
-    //  int runStateHash = Animator.StringToHash("Base Layer.Run");
-    //private bool start;
-
     void Start()
     {
-
-        // start = CrossPlatformInputManager.GetButtonDown("Jump");
         Text text = textgameobject.GetComponent<Text>();
         text.text = String.Format(ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "MenuStartText"), ReadFileJ.ReadJsonFile(SendData._File, SendData._language, "KeySpace"));
 
@@ -48,10 +47,9 @@ public class MenuTextHelper : MonoBehaviour
     {
         if (CrossPlatformInputManager.GetButtonDown(KeyMap._Submit) && RunStatus != true)
         {
-            
-           Destroy(AntiClicker);
+
+            Destroy(AntiClicker);
             Menu.ReadyToGetID = true;
-            //  Debug.LogError(CrossPlatformInputManager.GetButtonDown("Jump"));         //    anim.SetTrigger(End);  //float move = Input.GetAxis("Vertical"); // anim.SetFloat("Speed", move);  //   AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
             anim.SetTrigger(jumpHash);
             anim.StopPlayback();
             anim2.SetTrigger(jumpHash);

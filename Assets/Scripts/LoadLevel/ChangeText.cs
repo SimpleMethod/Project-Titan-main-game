@@ -2,17 +2,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Text))]
+
 public class ChangeText : MonoBehaviour
 {
     public Text TextOnPanel;
-    private Text txt;
     public string FileName;
     public string SearchRequest;
     public int[] NumberOfElements;
     public string SearchRequestChildren;
     public int SekundyDoZmiany;
-   // ReadJsonFileHelper ReadFileJ = new ReadJsonFileHelper();
-
+    [SerializeField]
+    private Text txt;
     void Start()
     {
         txt = TextOnPanel.GetComponent<Text>();

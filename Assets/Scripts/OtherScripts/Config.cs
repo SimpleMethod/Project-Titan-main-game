@@ -7,7 +7,6 @@ using UnityEngine;
 public class Config : MonoBehaviour
 {
 
-
     private void Awake()
     {
         float[] ConfigTable = new float[100];
@@ -63,14 +62,14 @@ public class Config : MonoBehaviour
         SendData._resolutionScale = (int)ConfigTable[32];
         SendData._resolutionScaleMode = (int)ConfigTable[33];
         SendData._resolutionW = (int)ConfigTable[24];
-        SendData._resolutionH= (int)ConfigTable[25];
+        SendData._resolutionH = (int)ConfigTable[25];
         SendData._FPSLimit = (int)ConfigTable[35];
 
-        QualitySettings.SetQualityLevel ((int)ConfigTable[30], true);
+        QualitySettings.SetQualityLevel((int)ConfigTable[30], true);
         QualitySettings.vSyncCount = (int)ConfigTable[22];
         Application.targetFrameRate = (int)ConfigTable[35];
         QualitySettings.antiAliasing = (int)ConfigTable[1];
-        if (ConfigTable[22]==1)
+        if (ConfigTable[22] == 1)
         {
             SendData._vsync = true;
         }
@@ -78,7 +77,7 @@ public class Config : MonoBehaviour
         {
             SendData._vsync = false;
         }
-        if(ConfigTable[33]== 0)
+        if (ConfigTable[33] == 0)
         {
             if (ConfigTable[26] == 0)
             {
@@ -90,11 +89,11 @@ public class Config : MonoBehaviour
             }
 
         }
-      else
+        else
         {
             if (ConfigTable[26] == 0)
             {
-                Screen.SetResolution((int)ConfigTable[24]* (int)ConfigTable[32], (int)ConfigTable[25] * (int)ConfigTable[32], false, (int)ConfigTable[35]);
+                Screen.SetResolution((int)ConfigTable[24] * (int)ConfigTable[32], (int)ConfigTable[25] * (int)ConfigTable[32], false, (int)ConfigTable[35]);
             }
             else
             {
@@ -163,8 +162,5 @@ public class Config : MonoBehaviour
                 QualitySettings.softVegetation = false;
             }
         }
-
-
     }
-
 }

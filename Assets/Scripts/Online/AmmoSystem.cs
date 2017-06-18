@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoSystem : MonoBehaviour {
+[RequireComponent(typeof(GameObject))]
+
+public class AmmoSystem : MonoBehaviour
+{
 
     public bool AddAmmo;
+    public int ValueAmmo;
     void OnCollisionEnter(Collision collision)
     {
         GameObject HitTarget = collision.gameObject;
@@ -15,15 +19,14 @@ public class AmmoSystem : MonoBehaviour {
             if (AddAmmo == false)
             {
 
-                Simplemove.AmmoSystem(false,1);
+                Simplemove.AmmoSystem(false, ValueAmmo);
             }
             else
             {
-                Simplemove.AmmoSystem(true,1);
+                Simplemove.AmmoSystem(true, ValueAmmo);
             }
 
         }
-        Debug.LogWarning("Debug Ammo");
     }
 
 }

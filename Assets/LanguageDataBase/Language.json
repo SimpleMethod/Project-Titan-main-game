@@ -75,9 +75,9 @@
   "PL-PL.Ultra": "Ultra",
   "PL-PL.MenuStartText": "Naciśnij klawisz [{0}], aby rozpocząć",
   "PL-PL.Status": "Status: {0}",
-  "PL-PL.LoadLastSave": "WZNÓW",
+  "PL-PL.SourceCode": "KOD ŹRÓDŁOWY",
   "PL-PL.NewGame": "NOWA GRA",
-  "PL-PL.LoadGame": "WCZYTAJ GRĘ",
+  "PL-PL.LoadGame": "ZOBACZ POSTĘPY",
   "PL-PL.OnlineMode": "TRYB ONLINE",
   "PL-PL.Settings": "USTAWIENIA",
   "PL-PL.Exit": "WYJDŹ",
@@ -170,5 +170,6 @@
   "PL-PL.Bt2181": "Bt2181",
   "PL-PL.AdmiralDavid": "Admiral David",
   "PL-PL.PoorMan": "Poor Man",
-  "PL-PL.Zoe": "Zoe"
+  "PL-PL.Disconnect": "Odłącz od serwera",
+  "PL-PL.ExitV2": "Wyjdź"
 }

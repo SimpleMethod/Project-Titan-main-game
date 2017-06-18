@@ -23,6 +23,8 @@ public class SendData : MonoBehaviour
     static public bool _openmenu;
     static public bool _openchat;
     static public bool _livestatus;
+    static public bool _MoveStatus = false;
+
 #if UNITY_EDITOR
     static public float _master_Volume = 1f;
     static public float _volume_Music = 1f;

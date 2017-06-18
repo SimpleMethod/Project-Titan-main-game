@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFacing : MonoBehaviour {
+[RequireComponent(typeof(Camera))]
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+public class CameraFacing : MonoBehaviour
+{
+    // Update is called once per frame
+    void Update()
+    {
         Camera cam = Camera.main;
         var point = cam.transform.position;
         transform.LookAt(point);

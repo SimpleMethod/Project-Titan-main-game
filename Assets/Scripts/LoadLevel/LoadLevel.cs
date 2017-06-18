@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 
+[RequireComponent(typeof(Image))]
+[RequireComponent(typeof(Animator))]
+
 public class LoadLevel : MonoBehaviour
 {
     public Image ProgressBar;

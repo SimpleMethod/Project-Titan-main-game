@@ -4,79 +4,67 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
-public class Health : NetworkBehaviour {
+[RequireComponent(typeof(Text))]
+
+public class Health : NetworkBehaviour
+{
 
     public const float MaxHealth = 100f;
     [SyncVar(hook = "UpdateProgressBar")] public float RealHealth = MaxHealth;
     public RectTransform HealthBar;
-    // (hook = "UpdateProgressBar")
-    Text HealthText;
-    
+    [SerializeField]
+    private Text HealthText;
+
     public void UpdateProgressBar(float scale)
     {
-      //  Text cameraLabel = GameObject.Find("HealthText").GetComponent<Text>();
         HealthBar.localScale = new Vector3(scale / 100, 1, 1);
-        Debug.LogWarning("Health value:"+scale);
-        //   cameraLabel.text = scale.ToString();
-
+        Debug.LogWarning("Health value:" + scale);
         if (isLocalPlayer)
         {
             HealthText = GameObject.Find("HealthText").GetComponent<Text>();
-            HealthText.text = RealHealth.ToString();
+            HealthText.text = scale.ToString();
         }
     }
     public void TakeDMG(float value)
     {
-     //   if(!isServer)
-     //  {
-     //      return;
-     //   }
-
-
         RealHealth -= value;
-        if(RealHealth<=0)
+        if (RealHealth <= 0)
         {
             RealHealth = MaxHealth;
-            Debug.LogError("PlayerDead");
-         //   SendData._livestatus = false;
-           Rpc_Respawn();
-         //   SendData._livestatus = false;
+            Rpc_Respawn();
+            Debug.LogError("Player is dead");
+            if(isLocalPlayer)
+            {
+                Functions.RequestToServer(SendData._uniqueid, 3, 1);
+            }
+            Functions.RequestToServer(SendData._uniqueid, 3, 1);
         }
         UpdateProgressBar(RealHealth);
     }
 
     public void TakeHealth(float value)
     {
-        //   if(!isServer)
-        //  {
-        //      return;
-        //   }
-
-
         RealHealth += value;
         UpdateProgressBar(RealHealth);
-
-
     }
 
     [ClientRpc]
     void Rpc_Respawn()
-   {
+    {
 
-       if (isLocalPlayer)
-       {
-           transform.position = Vector3.zero;
+        if (isLocalPlayer)
+        {
+            float X = Random.Range(-40.0f, 40.0f);
+            float Z = Random.Range(-25.0f, 25.0f);
+            transform.position = new Vector3(X, 0, Z);
+            Functions.RequestToServer(SendData._uniqueid, 5, 1);
+            Functions.RequestToServer(SendData._uniqueid, 4, 1);
         }
 
     }
-
-    // Use this for initialization
-    void Start () {
-      
+    private void Start()
+    {
+        Text HealthText = GameObject.Find("HealthText").GetComponent<Text>();
+        HealthText.text = 100.ToString();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

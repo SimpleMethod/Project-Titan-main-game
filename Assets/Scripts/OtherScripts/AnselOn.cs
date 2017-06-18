@@ -19,20 +19,17 @@ public class AnselOn : MonoBehaviour {
         
     }
 	
-
-	// Update is called once per frame
 	void Update () {
         
         if (NVIDIA.Ansel.IsSessionActive)
         {
             mCurrentTime += Time.deltaTime;
-            Debug.LogWarning("ZSSS");
-
             return;
         }
         else
         {
-          //  camera.SetActive(true);
+            //  camera.SetActive(true);
+         
         }
         mCurrentTime += Time.deltaTime;
     }
