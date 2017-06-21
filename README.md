@@ -54,4 +54,4 @@ Sieciowy FPS wykorzystujący silnik renderujący Unity.
 Przykład działania technologii firmy Nvidia:
  ![picture alt](http://i.imgur.com/Dh1kqXo.png "Nvida <3")
 - - - -
-
+Całość projektu dostępna tutaj: https://github.com/SimpleMethod/-Retail-version-ProjectTitan-
