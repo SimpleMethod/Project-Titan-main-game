@@ -51,11 +51,6 @@ Sieciowy FPS wykorzystujący silnik renderujący Unity.
 2. Nivida Ansel nie działa
     1. Należy w folderze ze sterownikiem odnaleźć NvCameraEnable.exe stworzyć skrót i dodać do niego `whitelisting-everything`
 - - - -
-## Pozostałe linki ##
-1. Komponent webowy `https://github.com/SimpleMethod/-ProjectTitan-Web-Components/`
-2. Identyfikacja użytkownika `https://github.com/SimpleMethod/-ProjectTitan-User-identification`
-3. Gra `https://github.com/SimpleMethod/ProjectTitan` **Dostęp do tej części jest zabroniony, w celu możliwości pobrania repozytorium proszę o kontakt.**
-- - - -
 Przykład działania technologii firmy Nvidia:
  ![picture alt](http://i.imgur.com/Dh1kqXo.png "Nvida <3")
 - - - -
