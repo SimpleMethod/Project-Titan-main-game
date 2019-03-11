@@ -1,57 +1,56 @@
-# Project Titan #
-Sieciowy FPS wykorzystujący silnik renderujący Unity.
+Project Titan # Project Titan #
+Network FPS using Unity rendering engine.
 - - - -
-## Lista elementów ##
+## List of elements ##
 1. Intro:
-    1. Oddzielne odtwarzanie dźwięku i wideo synchronizowane ze sobą
-2. Menu:
-    1. W pełni zaprogramowane menu bez wsparcia zewnętrznych funkcji
-    2. Zaprogramowane opcje ustawień dla silnika Unity
-    3. Zabezpieczenie przed przeciążeniem
-3. Tryb pojedynczego gracza:
-    1. Wykorzystanie Nvidia HBAO+
-    2. Wsparcie dla Nvidia Ansel
-    3. Symulacja wiatru
-    4. Licznik klatek na sekundę
-    5. Wsparcie dla LOD
-    6. Teselacja
-4. Tryb wielu graczy:
-   1. Możliwość stworzenia serwera, bycie klientem w jednej aplikacji
-   2. Granie w sieci lokalnej
-    3. Losowe miejsce odrodzenia postaci (w granicach mapy)
-    4. Bonusy dodające/odejmujące życie albo amunicję
-    5. Aktualizacja ilości zabójstw, śmierci oraz ilości punktów doświadczenia
-5. Lista płac
-    1. Pełne zaprogramowanie animacji przejść
-    2. Algorytm sprawdza, czy animacja się zakończyła, jeżeli tak to wraca do menu
-6. Funkcje
-    1. Tworzenie pliku konfiguracyjnego
-    2. Sprawdzanie identyfikatora użytkownika
-    3. Algorytm umożliwiający zmianę języka dla użytkownika
-    4. Haszowanie danych dla API
-7. Prosta baza danych i mapa przycisków
-8. Program generujący unikalny identyfikator użytkownika
-    1. Pobranie numeru seryjnego CPU oraz płyty głównej
-    2. Komunikacja dzięki socketowi między grą a programem identyfikującym
-9. Webowe API
-    1. Komunikacja zabezpieczona dzięki haszowaniu
-    2. Użycie PHP z rozszerzeniem MySQLi
-    3. Możliwość odczytu z bazy danych ilości zabójstw, śmierci oraz ilość punktów doświadczenia
-    4. Możliwość dodania do bazy danych ilości zabójstw, śmierci oraz ilość punktów doświadczenia
+    Separate audio and video playback synchronized with each other
+Menu:
+    Fully programmed menu without external function support
+    Programmed setting options for the Unity engine
+    3. overload protection
+Single player mode:
+    1. use of Nvidia HBAO+
+    Support for Nvidia Ansel
+    3. wind simulation
+    4. frame rate monitor
+    5. support for the LOD
+    6. tessellation
+Multiplayer mode:
+   1. ability to create a server, being a client in one application
+   2. playing in the local network
+    3. the random place of the form's rebirth (within the boundaries of the map)
+    4 Life or ammunition bonuses or ammunition
+    5. updating the number of murders, deaths and experience points
+5. payroll
+    1. full programming of animation of transitions
+    2. the algorithm checks whether the animation has ended, if so, it returns to the menu
+6. functions
+    Creating a configuration file
+    Checking the user ID
+    3. an algorithm that allows the user to change the language of the user
+    Hash data for the API
+7. simple database and button map
+8. a program generating a unique user ID
+    1. download the serial number of the CPU and motherboard
+    2. communication thanks to the socket between the game and the identification program
+9. web-based APIs
+    1. communication protected by means of hashing
+    Using PHP with MySQLi extension
+    3. ability to read from the database the number of murders, deaths and the number of experience points
+    4. ability to add to the database the number of murders, deaths and experience points
 - - - -
-## Sposób kompilacji projektu ##
-1. Należy zainstalować pakiet Visual Studio
-2. Należy zainstalować silnik renderujący Unity
-3. Po zaimportowaniu projektu należy do folderu **Plugins** biblioteki **Ansel** oraz **JsonNet**
-4. Po udanej kompilacji należy przekopiować z folderu **Assets** folder **LanguageDataBase** i przenieść go do **ProjectTitan_Data**
+## Manner of compilation of the project ##
+Please install the Visual Studio package
+2. install the Unity rendering engine
+After importing the project, it belongs to the **Plugins** folder of the **Ansel** and **JsonNet** libraries.
+After a successful compilation, copy the **Assets** folder **LanguageDataBase** and transfer it to **ProjectTitan_Data**.
 - - - -
-## Możliwe problemy ##
-1. Po skompilowaniu brak interfejsu
-    1. Nie został przekopiowany plik językowy
-2. Nivida Ansel nie działa
-    1. Należy w folderze ze sterownikiem odnaleźć NvCameraEnable.exe stworzyć skrót i dodać do niego `whitelisting-everything`
+## Possible problems ##
+1. no interface after compilation
+    The language file has not been copied
+Nivida Ansel does not work
+    In the driver folder find NvCameraEnable.exe to create a shortcut and add `whitelisting-everything` to it.
 - - - -
-Przykład działania technologii firmy Nvidia:
- ![picture alt](http://i.imgur.com/Dh1kqXo.png "Nvida <3")
+Example of Nvidia technology:
+ ![picture alt](http://i.imgur.com/Dh1kqXo.png 'Nvida <3')
 - - - -
-Całość projektu dostępna tutaj: https://github.com/SimpleMethod/-Retail-version-ProjectTitan-
