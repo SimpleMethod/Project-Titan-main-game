@@ -1,4 +1,4 @@
-#Project Titan #
+# Project Titan #
 Network FPS using Unity rendering engine.
 - - - -
 ## List of elements ##
